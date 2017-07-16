@@ -1,0 +1,132 @@
+{
+    "name": "pynsist",
+    "displayName": "pynsist",
+    "description": "Language support, snippets and build-system for pynsist, a tool to build Windows installers for your Python applications",
+    "version": "0.0.0",
+    "publisher": "idleberg",
+    "license": "MIT OR GPL-2.0",
+    "author": {
+        "name": "Jan T. Sott",
+        "url": "http://github.com/idleberg"
+    },
+    "keywords": [
+        "nsis",
+        "pynsist",
+        "python"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/idleberg/vscode-pynsist.git"
+    },
+    "homepage": "https://github.com/idleberg/vscode-pynsist",
+    "bugs": {
+        "url": "https://github.com/idleberg/vscode-pynsist/issues"
+    },
+    "main": "./lib/main",
+    "icon": "images/logo.png",
+    "galleryBanner": {
+        "color": "#646464",
+        "theme": "dark"
+    },
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Snippets",
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:pynsist"
+    ],
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "pynsist",
+            "properties": {
+                "pynsist.pathToPynsist": {
+                    "type": "string",
+                    "default": null,
+                    "description": "Specify the full path to `pynsist`"
+                },
+                "pynsist.showNotifications": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Show build notifications indicating success or failure"
+                },
+                "pynsist.alwaysShowOutput": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "If `false` the output channel will only be shown on errors"
+                },
+                "pynsist.useWineToRun": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Specify whether to run compiled installers using Wine - https://www.winehq.org/"
+                }
+            }
+        },
+        "languages": [
+            {
+                "id": "pynsist",
+                "aliases": [
+                    "Pynist Configuration",
+                    "Pynsist"
+                ],
+                "extensions": [
+                    "installer.cfg"
+                ],
+                "configuration": "./config/pynsist.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "pynsist",
+                "scopeName": "source.ini.pynsist",
+                "path": "./syntaxes/pynsist.tmLanguage"
+            }
+        ],
+        "commands": [
+            {
+                "command": "extension.pynsist.generate",
+                "title": "pynsist: Generate Script"
+            },
+            {
+                "command": "extension.pynsist.compile",
+                "title": "pynsist: Compile Installer"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "pynsist",
+                "path": "./snippets/nsis.json"
+            },
+            {
+                "language": "pynsist",
+                "path": "./snippets/pynsist.json"
+            }
+        ]
+    },
+    "scripts": {
+        "compile": "tsc -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "gulp lint",
+        "vscode:prepublish": "tsc -p ./ && gulp build"
+    },
+    "dependencies": {
+        "opn": "^5.1.0"
+    },
+    "devDependencies": {
+        "@types/node": "^8.0.10",
+        "gulp": "github:gulpjs/gulp#4.0",
+        "gulp-debug": "^3.1.0",
+        "gulp-jsonlint": "^1.2.0",
+        "gulp-rename": "^1.2.2",
+        "gulp-svg2png": "^2.0.2",
+        "gulp-tslint": "^8.1.1",
+        "gulp-xml-validator": "^0.1.2",
+        "nsis-logo-v3": "github:idleberg/nsis-logo-v3",
+        "tslint": "^5.5.0",
+        "typescript": "^2.3.4",
+        "vscode": "^1.1.2"
+    }
+}
