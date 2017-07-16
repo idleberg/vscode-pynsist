@@ -44,6 +44,10 @@ $ git clone https://github.com/idleberg/vscode-pynsist pynsist
 
 ## Usage
 
+### Snippets
+
+This package provides snippets to create sections and settings inside your `installer.cfg`, as well as all supported NSIS variables.
+
 ### Building
 
 Before you can build, make sure `pynsist` and `makensis` are in your PATH [environmental variable](https://support.microsoft.com/en-us/kb/310519). Alternatively, you can specify the path to `pynsist` in your [user settings](https://code.visualstudio.com/docs/customization/userandworkspace).
