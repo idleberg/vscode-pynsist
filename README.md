@@ -42,6 +42,17 @@ Clone repository as `pynsist`:
 $ git clone https://github.com/idleberg/vscode-pynsist pynsist
 ```
 
+## Usage
+
+### Building
+
+Before you can build, make sure `pynsist` and `makensis` are in your PATH [environmental variable](https://support.microsoft.com/en-us/kb/310519). Alternatively, you can specify the path to `pynsist` in your [user settings](https://code.visualstudio.com/docs/customization/userandworkspace).
+
+Once setup, you can make use of the two commands provided by this package:
+
+- `pynsist: Generate Script` - generates an NSIS script from your `installer.cfg`
+- `pynsist: Compile Installer` - generates an NSIS script and compiles it
+
 ## License
 
 This work is licensed under [The MIT License](https://opensource.org/licenses/MIT)
