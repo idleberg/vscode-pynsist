@@ -25,7 +25,8 @@
     "main": "./lib/main",
     "icon": "images/logo.png",
     "galleryBanner": {
-        "color": "#eff1f3"
+        "color": "#323232",
+        "theme": "dark"
     },
     "engines": {
         "vscode": "^1.0.0"
