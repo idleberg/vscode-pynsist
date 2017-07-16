@@ -32,6 +32,7 @@
         "vscode": "^1.0.0"
     },
     "categories": [
+        "Language",
         "Snippets",
         "Other"
     ],
