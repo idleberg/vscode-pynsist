@@ -1,3 +1,7 @@
+# v0.1.3 [#](https://github.com/idleberg/vscode-nsis/releases/tag/0.1.3)
+
+- use `spawn` over `exec`
+
 # v0.1.2 [#](https://github.com/idleberg/vscode-nsis/releases/tag/0.1.2)
 
 - add usage description
