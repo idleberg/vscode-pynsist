@@ -4,7 +4,7 @@ import { window, workspace } from 'vscode';
 
 import * as opn from 'opn';
 import { basename, dirname, extname, join } from 'path';
-import { exec, spawn } from 'child_process';
+import { spawn } from 'child_process';
 import { existsSync } from 'fs';
 import { platform } from 'os';
 
@@ -84,7 +84,8 @@ const runInstaller = (outFile) => {
   let config: any = getConfig();
 
   if (platform() === 'win32') {
-    return exec(outFile);
+    // Setting shell to true seems to prevent spawn UNKNOWN errors
+    return spawn(outFile, {shell: true});
   } else if (config.useWineToRun === true) {
     return spawn('wine', [ outFile ]);
   }
