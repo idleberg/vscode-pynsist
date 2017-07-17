@@ -94,7 +94,7 @@ const generate = (runMakensis) => {
           }
         } else {
           channel.show(true);
-          if (config.showNotifications) window.showErrorMessage('Somethign went wrong, see output for details');
+          if (config.showNotifications) window.showErrorMessage('Something went wrong. See the output for details.');
         }
       });
     })
