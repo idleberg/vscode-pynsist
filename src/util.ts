@@ -48,7 +48,7 @@ const getPrefix = () => {
 const getPath = () => {
   return new Promise((resolve, reject) => {
     let pathToPynsist = getConfig().pathToPynsist;
-    if (typeof pathToPynsist !== 'undefined' && pathToPynsist !== null) {
+    if (typeof pathToPynsist !== 'undefined' && pathToPynsist !== null && pathToPynsist !== '') {
       console.log('Using pynsist path found in user settings: ' + pathToPynsist);
       return resolve(pathToPynsist);
     }
@@ -85,7 +85,7 @@ const runInstaller = (outFile) => {
 
   if (platform() === 'win32') {
     // Setting shell to true seems to prevent spawn UNKNOWN errors
-    return spawn(outFile, {shell: true});
+    return spawn(outFile, [], { shell: true});
   } else if (config.useWineToRun === true) {
     return spawn('wine', [ outFile ]);
   }
