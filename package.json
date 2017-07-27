@@ -82,7 +82,7 @@
         "grammars": [
             {
                 "language": "pynsist",
-                "scopeName": "source.ini.pynsist",
+                "scopeName": "source.cfg.pynsist",
                 "path": "./syntaxes/pynsist.tmLanguage"
             }
         ],
