@@ -1,4 +1,4 @@
-# v0.2.0 [#](https://github.com/idleberg/vscode-nsis/releases/tag/0.2.0)
+# v0.2.1 [#](https://github.com/idleberg/vscode-nsis/releases/tag/0.2.1)
 
 - new syntax file
 - change scope
