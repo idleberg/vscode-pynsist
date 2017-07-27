@@ -7,7 +7,7 @@
         <string>cfg</string>
     </array>
     <key>name</key>
-    <string>INI</string>
+    <string>Pynsist Configuration</string>
     <key>patterns</key>
     <array>
         <dict>
