@@ -1,3 +1,8 @@
+# v0.2.0 [#](https://github.com/idleberg/vscode-nsis/releases/tag/0.2.0)
+
+- new syntax file
+- change scope
+
 # v0.1.3 [#](https://github.com/idleberg/vscode-nsis/releases/tag/0.1.3)
 
 - use `spawn` over `exec`
