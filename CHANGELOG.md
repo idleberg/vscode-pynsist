@@ -1,3 +1,9 @@
+# v0.2.3 [#](https://github.com/idleberg/vscode-nsis/releases/tag/0.2.3)
+
+- fix syntax pattern
+- fix alias name
+- fix scope
+
 # v0.2.2 [#](https://github.com/idleberg/vscode-nsis/releases/tag/0.2.2)
 
 - fix syntax name
