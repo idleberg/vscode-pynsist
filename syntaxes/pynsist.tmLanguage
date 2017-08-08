@@ -64,7 +64,7 @@
             <key>match</key>
             <string>^\s*(\[)(.*?)(\])</string>
             <key>name</key>
-            <string>entity.name.section.nsis</string>
+            <string>entity.name.section.pynsist</string>
         </dict>
         <dict>
             <key>captures</key>
@@ -131,7 +131,7 @@
                 </dict>
             </dict>
             <key>match</key>
-            <string>^(\s*(["'']?)(.+?)(\2)\s*(=))?\n?</string>
+            <string>^(\s*(["']?)(bitness|console|directory|entry_point|exclude|extra_preamble|files|format|icon|include_msvcrt|installer_name|name|nsi_template|packages|parameters|publisher|pypi_wheels|script|target|version)(\2)\s*)(?:=)</string>
             <key>name</key>
             <string>meta.declaration.pynsist</string>
         </dict>
