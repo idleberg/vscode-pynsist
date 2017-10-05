@@ -1,3 +1,9 @@
+# v0.3.0 [#](https://github.com/idleberg/vscode-nsis/releases/tag/0.3.0)
+
+- add support for Task Runner
+- fix dialog
+- update `devDependencies`
+
 # v0.2.3 [#](https://github.com/idleberg/vscode-nsis/releases/tag/0.2.3)
 
 - fix syntax pattern
