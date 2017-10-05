@@ -19,7 +19,7 @@ const generate = (runMakensis) => {
   let doc = window.activeTextEditor.document;
 
   if (window.activeTextEditor['_documentData']['_languageId'] !== 'properties' && doc.fileName === 'installer.cfg') {
-    channel.appendLine('This command is only available for Python files');
+    channel.appendLine('This command is only available for Pynsist Configuraiton files');
     return;
   }
 
