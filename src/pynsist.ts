@@ -1,10 +1,13 @@
 'use strict';
 
-import { workspace, window } from 'vscode';
-
-import { clearOutput, detectOutput, getConfig, getPath, pathWarning, runInstaller, sanitize } from './util';
+// Dependencies
 import { spawn } from 'child_process';
 import { dirname } from 'path';
+import { workspace, window } from 'vscode';
+
+// Package Components
+import { clearOutput, detectOutput, getConfig, getPath, pathWarning, runInstaller, sanitize } from './util';
+
 
 const channel = window.createOutputChannel('pynsist');
 

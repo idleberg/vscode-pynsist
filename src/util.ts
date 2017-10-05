@@ -1,12 +1,12 @@
 'use strict';
 
-import { window, workspace } from 'vscode';
-
+// Dependencies
 import * as opn from 'opn';
-import { basename, dirname, extname, join } from 'path';
 import { spawn } from 'child_process';
 import { existsSync } from 'fs';
 import { platform } from 'os';
+import { basename, dirname, extname, join } from 'path';
+import { window, workspace } from 'vscode';
 
 const clearOutput = (channel) => {
   let config: any = getConfig();
