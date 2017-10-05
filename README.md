@@ -56,6 +56,7 @@ Once setup, you can make use of the two commands provided by this package:
 
 - `pynsist: Generate Script` - generates an NSIS script from your `installer.cfg`
 - `pynsist: Compile Installer` - generates an NSIS script and compiles it
+- `pynsist: Create Build Task` - create build task for the built-in Task Runner
 
 ## License
 
