@@ -1,3 +1,8 @@
+# v0.4.1 [#](https://github.com/idleberg/vscode-nsis/releases/tag/0.4.1)
+
+- update development toolchain
+- update Travis CI configuration
+
 # v0.4.0 [#](https://github.com/idleberg/vscode-nsis/releases/tag/0.4.0)
 
 - add menu icons
