@@ -2,7 +2,7 @@
     "name": "pynsist",
     "displayName": "pynsist",
     "description": "Language support, snippets and build-system for pynsist, a tool to build Windows installers for your Python applications",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "publisher": "idleberg",
     "license": "MIT OR GPL-2.0",
     "author": {
@@ -145,19 +145,19 @@
         "vscode:prepublish": "tsc -p ./ && gulp build"
     },
     "dependencies": {
-        "opn": "^5.1.0"
+        "opn": "^5.2.0"
     },
     "devDependencies": {
-        "@types/node": "^8.0.32",
+        "@types/node": "^9.4.2",
         "gulp": "^4.0.0",
-        "gulp-debug": "^3.1.0",
-        "gulp-jsonlint": "^1.2.0",
+        "gulp-debug": "^3.2.0",
+        "gulp-jsonlint": "^1.2.1",
         "gulp-raster": "^0.2.0",
         "gulp-rename": "^1.2.2",
         "gulp-tslint": "^8.1.2",
-        "gulp-xml-validator": "^0.2.0",
-        "tslint": "^5.7.0",
-        "typescript": "^2.5.3",
-        "vscode": "^1.1.5"
+        "gulp-xml-validator": "^0.2.2",
+        "tslint": "^5.9.1",
+        "typescript": "^2.7.1",
+        "vscode": "^1.1.10"
     }
 }
