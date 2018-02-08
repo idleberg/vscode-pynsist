@@ -94,6 +94,16 @@
     "leftLabelHTML": "<span class='syntax--keyword syntax--other syntax--definition syntax--ini'>=</span>",
     "prefix": "nsi_template"
   },
+  "license_file (Rich Text Format)": {
+    "body": "license_file=${1:license}.rtf$0",
+    "leftLabelHTML": "<span class='syntax--keyword syntax--other syntax--definition syntax--ini'>=</span>",
+    "prefix": "license_file:rtf"
+  },
+  "license_file (Plain Text)": {
+    "body": "license_file=${1:license}.txt$0",
+    "leftLabelHTML": "<span class='syntax--keyword syntax--other syntax--definition syntax--ini'>=</span>",
+    "prefix": "license_file:txt"
+  },
   "packages": {
     "body": "packages=${1:packages}$0",
     "leftLabelHTML": "<span class='syntax--keyword syntax--other syntax--definition syntax--ini'>=</span>",

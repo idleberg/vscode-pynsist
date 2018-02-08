@@ -43,6 +43,24 @@
             <string>constant.numeric.pynsist</string>
         </dict>
         <dict>
+            <key>match</key>
+            <string>(?i)\b(?&lt;=\=)(true)\b</string>
+            <key>name</key>
+            <string>constant.language.boolean.true.pynsist</string>
+        </dict>
+        <dict>
+            <key>match</key>
+            <string>(?i)\b(?&lt;=\=)(false)\b</string>
+            <key>name</key>
+            <string>constant.language.boolean.false.pynsist</string>
+        </dict>
+        <dict>
+            <key>match</key>
+            <string>(?i)(?&lt;=format\=)(bundled)\b</string>
+            <key>name</key>
+            <string>constant.language.boolean.pynsist</string>
+        </dict>
+        <dict>
             <key>captures</key>
             <dict>
                 <key>1</key>
@@ -131,7 +149,7 @@
                 </dict>
             </dict>
             <key>match</key>
-            <string>^(\s*(["']?)(bitness|console|directory|entry_point|exclude|extra_preamble|extra_wheel_sources|files|format|icon|include_msvcrt|installer_name|name|nsi_template|packages|parameters|publisher|pypi_wheels|script|target|version)(\2)\s*)(?:=)</string>
+            <string>^(\s*(["']?)(bitness|console|directory|entry_point|exclude|extra_preamble|extra_wheel_sources|files|format|icon|include_msvcrt|installer_name|license_file|name|nsi_template|packages|parameters|publisher|pypi_wheels|script|target|version)(\2)\s*)(?:=)</string>
             <key>name</key>
             <string>meta.declaration.pynsist</string>
         </dict>
