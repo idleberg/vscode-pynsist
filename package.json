@@ -149,7 +149,7 @@
     },
     "devDependencies": {
         "@types/node": "^8.0.32",
-        "gulp": "github:gulpjs/gulp#4.0",
+        "gulp": "^4.0.0",
         "gulp-debug": "^3.1.0",
         "gulp-jsonlint": "^1.2.0",
         "gulp-raster": "^0.2.0",
