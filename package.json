@@ -16,9 +16,9 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/idleberg/vscode-pynsist.git"
+        "url": "https://github.com/idleberg/vscode-pynsist"
     },
-    "homepage": "https://github.com/idleberg/vscode-pynsist",
+    "homepage": "https://github.com/idleberg/vscode-pynsist#readme",
     "bugs": {
         "url": "https://github.com/idleberg/vscode-pynsist/issues"
     },
