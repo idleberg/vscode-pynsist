@@ -8,7 +8,7 @@ const svgFiles = [
 ];
 
 // Convert SVG
-gulp.task('default',(done) => {
+gulp.task('default', (done) => {
   gulp.src(svgFiles)
     .pipe(raster())
     .pipe(rename("logo.png"))
