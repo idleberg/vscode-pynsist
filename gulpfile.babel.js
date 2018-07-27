@@ -1,7 +1,9 @@
- // Dependencies
-const gulp = require('gulp');
-const raster = require('gulp-raster');
-const rename = require('gulp-rename');
+'use strict';
+
+// Dependencies
+import gulp from 'gulp';
+import raster from 'gulp-raster';
+import rename from 'gulp-rename';
 
 const svgFiles = [
   './src/logo.svg'
