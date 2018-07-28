@@ -1,3 +1,9 @@
+# v0.6.2 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/0.6.2)
+
+- use `gulpfile.babel.js`
+- modify logo
+- update dependencies
+
 # v0.6.1 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/0.6.1)
 
 - replace linter
