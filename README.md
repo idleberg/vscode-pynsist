@@ -2,7 +2,7 @@
 
 [![The MIT License](https://flat.badgen.net/badge/license/MIT/orange)](http://opensource.org/licenses/MIT)
 [![GitHub](https://flat.badgen.net/github/release/idleberg/vscode-pynsist)](https://github.com/idleberg/vscode-pynsist/releases)
-[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs-short/idleberg.pynsist)](https://marketplace.visualstudio.com/items?itemName=idleberg.pynsist)
+[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs-short/idleberg.pynsist.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=idleberg.pynsist)
 [![Travis](https://flat.badgen.net/travis/idleberg/vscode-pynsist)](https://travis-ci.org/idleberg/vscode-pynsist)
 [![David](https://flat.badgen.net/david/dev/idleberg/vscode-pynsist)](https://david-dm.org/idleberg/vscode-pynsist?type=dev)
 
