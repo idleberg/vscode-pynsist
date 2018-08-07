@@ -1,10 +1,10 @@
 # vscode-pynsist
 
-[![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](http://opensource.org/licenses/MIT)
-[![GitHub](https://img.shields.io/github/release/idleberg/vscode-pynsist.svg?style=flat-square)](https://github.com/idleberg/vscode-pynsist/releases)
-[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs-short/idleberg.pynsist.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=idleberg.pynsist)
-[![Travis](https://img.shields.io/travis/idleberg/vscode-pynsist.svg?style=flat-square)](https://travis-ci.org/idleberg/vscode-pynsist)
-[![David](https://img.shields.io/david/dev/idleberg/vscode-pynsist.svg?style=flat-square)](https://david-dm.org/idleberg/vscode-pynsist?type=dev)
+[![The MIT License](https://flat.badgen.net/badge/license/MIT/orange)](http://opensource.org/licenses/MIT)
+[![GitHub](https://flat.badgen.net/github/release/idleberg/vscode-pynsist)](https://github.com/idleberg/vscode-pynsist/releases)
+[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs-short/idleberg.pynsist)](https://marketplace.visualstudio.com/items?itemName=idleberg.pynsist)
+[![Travis](https://flat.badgen.net/travis/idleberg/vscode-pynsist)](https://travis-ci.org/idleberg/vscode-pynsist)
+[![David](https://flat.badgen.net/david/dev/idleberg/vscode-pynsist)](https://david-dm.org/idleberg/vscode-pynsist?type=dev)
 
 Language support, snippets and build-system for [pynsist](https://pypi.python.org/pypi/pynsist), a tool to build Windows installers for your Python applications
 
