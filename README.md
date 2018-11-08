@@ -58,6 +58,11 @@ Once set up, you can make use of the commands provided by this package:
 - `pynsist: Compile Installer` - generates an NSIS script and compiles it
 - `pynsist: Create Build Task` - create build task for the built-in Task Runner
 
+## Related
+
+- [atom-pynsist](https://atom.io/packages/pynsist)
+- [sublime-pynsist](https://packagecontrol.io/packages/Pynsist)
+
 ## License
 
 This work is licensed under [The MIT License](https://opensource.org/licenses/MIT)
