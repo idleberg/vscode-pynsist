@@ -1,3 +1,9 @@
+# v0.7.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/0.7.0)
+
+- add support for Pynsist 2.2
+- add `precommit` hook
+- update dependencies
+
 # v0.6.2 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/0.6.2)
 
 - use `gulpfile.babel.js`
