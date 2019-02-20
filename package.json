@@ -11,11 +11,12 @@
     },
     "main": "./lib/main",
     "scripts": {
-        "compile": "tsc -p ./",
+        "build": "tsc --pretty --project ./",
+        "dev": "tsc --watch --pretty --project ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "precommit": "npm run test",
         "test": "vscode-linter",
-        "vscode:prepublish": "tsc -p ./ && gulp"
+        "vscode:prepublish": "node run build && gulp"
     },
     "keywords": [
         "nsis",
