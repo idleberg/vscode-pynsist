@@ -52,11 +52,16 @@ This package provides snippets to create sections and settings inside your `inst
 
 Before you can build, make sure `pynsist` and `makensis` are in your PATH [environmental variable](http://superuser.com/a/284351/195953). Alternatively, you can specify the path to `pynsist` in your [user settings](https://code.visualstudio.com/docs/customization/userandworkspace).
 
-Once setup, you can make use of the two commands provided by this package:
+Once set up, you can make use of the commands provided by this package:
 
 - `pynsist: Generate Script` - generates an NSIS script from your `installer.cfg`
 - `pynsist: Compile Installer` - generates an NSIS script and compiles it
 - `pynsist: Create Build Task` - create build task for the built-in Task Runner
+
+## Related
+
+- [atom-pynsist](https://atom.io/packages/pynsist)
+- [sublime-pynsist](https://packagecontrol.io/packages/Pynsist)
 
 ## License
 

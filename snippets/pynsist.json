@@ -109,6 +109,11 @@
     "leftLabelHTML": "<span class='syntax--keyword syntax--other syntax--definition syntax--ini'>=</span>",
     "prefix": "packages"
   },
+  "local_wheels": {
+    "body": "local_wheels=${1:wheels}$0",
+    "leftLabelHTML": "<span class='syntax--keyword syntax--other syntax--definition syntax--ini'>=</span>",
+    "prefix": "local_wheels"
+  },
   "parameters": {
     "body": "parameters=${1:parameters}$0",
     "leftLabelHTML": "<span class='syntax--keyword syntax--other syntax--definition syntax--ini'>=</span>",
