@@ -1,7 +1,7 @@
 'use strict';
 
 // Dependencies
-import * as opn from 'opn';
+import * as open from 'open';
 import { spawn } from 'child_process';
 import { existsSync } from 'fs';
 import { platform } from 'os';
@@ -73,9 +73,9 @@ const pathWarning = () => {
   .then((choice) => {
     switch (choice) {
       case 'Download':
-        return opn('https://pypi.python.org/pypi/pynsist');
+        return open('https://pypi.python.org/pypi/pynsist');
       case 'Help':
-        return opn('http://superuser.com/a/284351/195953');
+        return open('http://superuser.com/a/284351/195953');
     }
   });
 };
