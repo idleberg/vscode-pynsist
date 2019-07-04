@@ -4,7 +4,7 @@
 [![GitHub](https://flat.badgen.net/github/release/idleberg/vscode-pynsist)](https://github.com/idleberg/vscode-pynsist/releases)
 [![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs-short/idleberg.pynsist.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=idleberg.pynsist)
 [![CircleCI](https://flat.badgen.net/circleci/github/idleberg/vscode-pynsist)](https://circleci.com/gh/idleberg/vscode-pynsist)
-[![David](https://flat.badgen.net/david/dev/idleberg/vscode-pynsist)](https://david-dm.org/idleberg/vscode-pynsist?type=dev)
+[![David](https://flat.badgen.net/david/dep/idleberg/vscode-pynsist)](https://david-dm.org/idleberg/vscode-pynsist)
 
 Language support, snippets and build-system for [pynsist](https://pypi.python.org/pypi/pynsist), a tool to build Windows installers for your Python applications
 
