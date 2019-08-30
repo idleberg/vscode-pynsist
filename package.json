@@ -93,12 +93,12 @@
                 "pynsist.alwaysShowOutput": {
                     "type": "boolean",
                     "default": true,
-                    "description": "If `false` the output channel will only be shown on errors"
+                    "markdownDescription": "%pynsistAlwaysShowOutput%"
                 },
                 "pynsist.useWineToRun": {
                     "type": "boolean",
                     "default": false,
-                    "description": "%useWineToRun%"
+                    "markdownDescription": "%pynsistUseWineToRun%"
                 }
             }
         },
