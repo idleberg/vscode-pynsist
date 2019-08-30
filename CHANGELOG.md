@@ -1,3 +1,9 @@
+# v0.9.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/0.9.0)
+
+- add support for Tasks 2.0.0
+- use Markdown descriptions in settings
+- update dependencies
+
 # v0.8.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/0.8.0)
 
 - compiled with Webpack
