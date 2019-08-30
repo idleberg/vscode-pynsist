@@ -19,17 +19,23 @@ const createTask = () => {
     const { version } = require('../package.json');
 
     const taskFile: Object = {
-        'command': 'pynsist',
-        'version': version,
-        'args': ['${file}'],
-        'isShellCommand': false,
-        'showOutput': 'always',
-        'suppressTaskName': true,
-        'echoCommand': false,
-        'group': {
-            'kind': 'build',
-            'isDefault': true
+      'version': '2.0.0',
+      'tasks': [
+        {
+          'label': 'pynsist: Compile Installer',
+          'type': 'shell',
+          'command': 'pynsist',
+          'args': [ '${file}' ],
+          'group': 'build'
+        },
+        {
+          'label': 'pynsist: Generate Script',
+          'type': 'shell',
+          'command': 'pynsist',
+          'args': [ '--no-makensis', '${file}' ],
+          'group': 'build'
         }
+      ]
     };
 
     const jsonString: string = JSON.stringify(taskFile, null, 2);

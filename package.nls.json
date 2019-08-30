@@ -1,0 +1,4 @@
+{
+  "pathToPynsist": "Specify the full path to `pynsist`",
+  "useWineToRun": "Specify whether to run compiled installers using [Wine]{https://www.winehq.org/)"
+}

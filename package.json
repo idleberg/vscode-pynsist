@@ -78,7 +78,7 @@
                 "pynsist.pathToPynsist": {
                     "type": "string",
                     "default": null,
-                    "description": "Specify the full path to `pynsist`"
+                    "markdownDescription": "%pynsistPathToPynsist%"
                 },
                 "pynsist.showNotifications": {
                     "type": "boolean",
@@ -98,7 +98,7 @@
                 "pynsist.useWineToRun": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Specify whether to run compiled installers using Wine - https://www.winehq.org/"
+                    "description": "%useWineToRun%"
                 }
             }
         },
@@ -141,7 +141,11 @@
             },
             {
                 "command": "extension.pynsist.create-build-task",
-                "title": "pynsist: Create Build Task"
+                "title": "pynsist: Create Build Task",
+                "icon": {
+                  "dark": "./images/icon--task-dark.svg",
+                  "light": "./images/icon--task-light.svg"
+                }
             }
         ],
         "menus": {
@@ -155,6 +159,11 @@
                     "when": "resourceLangId == pynsist",
                     "command": "extension.pynsist.generate",
                     "group": "navigation@2"
+                },
+                {
+                    "when": "resourceLangId == pynsist",
+                    "command": "extension.pynsist.create-build-task",
+                    "group": "navigation@3"
                 }
             ]
         },
