@@ -178,6 +178,9 @@
             }
         ]
     },
+    "extensionDependencies": [
+        "idleberg.nsis"
+    ],
     "babel": {
         "presets": [
             "es2015"
