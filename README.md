@@ -10,6 +10,8 @@ Language support, snippets and build-system for [pynsist](https://pypi.python.or
 
 ![Screenshot](https://raw.github.com/idleberg/vscode-pynsist/master/screenshot.gif)
 
+*See Pynsist in action*
+
 ## Installation
 
 ### Extension Marketplace
