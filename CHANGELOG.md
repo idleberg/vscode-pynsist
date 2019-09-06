@@ -1,3 +1,7 @@
+# v0.9.2 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/0.9.2)
+
+- add `idleberg.nsis` dependency for script highlighting
+
 # v0.9.1 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/0.9.1)
 
 - same as `v0.9.0`, fixes Marketplace release
