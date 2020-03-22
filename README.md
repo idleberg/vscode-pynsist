@@ -54,7 +54,7 @@ This package provides snippets to create sections and settings inside your `inst
 
 ### Building
 
-Before you can build, make sure `pynsist` and `makensis` are in your PATH [environmental variable](http://superuser.com/a/284351/195953). Alternatively, you can specify the path to `pynsist` in your [user settings](https://code.visualstudio.com/docs/customization/userandworkspace).
+Before you can build, make sure `pynsist` and `makensis` are in your PATH [environment variable](http://superuser.com/a/284351/195953). Alternatively, you can specify the path to `pynsist` in your [user settings](https://code.visualstudio.com/docs/customization/userandworkspace).
 
 Once set up, you can make use of the commands provided by this package:
 
