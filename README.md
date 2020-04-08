@@ -18,14 +18,26 @@ Language support, snippets and build-system for [pynsist](https://pypi.python.or
 
 Launch Quick Open, paste the following command, and press <kbd>Enter</kbd>
 
-`ext install pynsist`
+`ext install idleberg.pynsist`
+
+### CLI
+
+With [shell commands](https://code.visualstudio.com/docs/editor/command-line) installed, you can use the following command to install the extension:
+
+`$ code --install-extension idleberg.pynsist`
 
 ### Packaged Extension
 
-Download the package extension from the the [release page](https://github.com/idleberg/vscode-pynsist/releases) and install it from the command-line:
+Download the packaged extension from the the [release page](https://github.com/idleberg/vscode-pynsist/releases) and install it from the command-line:
 
 ```bash
-$ code --install-extension pynsist-*.vsix
+$ code --install-extension path/to/pynsist-*.vsix
+```
+
+Alternatively, you can download the packaged extension from the [Open VSX Registry](https://open-vsx.org/) or using the [`ovsx`](https://www.npmjs.com/package/ovsx) command-line tool:
+
+```bash
+$ ovsx get idleberg.pynsist
 ```
 
 ### Clone Repository
