@@ -9,7 +9,7 @@
         "name": "Jan T. Sott",
         "url": "http://github.com/idleberg"
     },
-    "main": "./lib/extension",
+    "main": "./readme.md",
     "scripts": {
         "build": "webpack --mode production",
         "dev": "webpack --mode none --watch",
@@ -63,7 +63,7 @@
         "vscode": "^1.0.0"
     },
     "categories": [
-        "Languages",
+        "Programming Languages",
         "Snippets",
         "Other"
     ],
