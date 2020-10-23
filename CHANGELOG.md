@@ -1,6 +1,6 @@
 # v0.10.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/0.10.0)
 
-- add support for variable substition when reading config
+- add support for variable substitution when reading config
 - builds with Rollup
 - lints with ESLint
 - update dependencies
