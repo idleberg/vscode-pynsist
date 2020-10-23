@@ -9,13 +9,18 @@
         "name": "Jan T. Sott",
         "url": "http://github.com/idleberg"
     },
-    "main": "./readme.md",
+    "main": "./lib/extension.md",
+    "typings": "./types",
     "scripts": {
-        "build": "webpack --mode production",
-        "dev": "webpack --mode none --watch",
+        "compile": "npm run build",
+        "build": "NODE_ENV=production rollup --config",
+        "dev": "npm run start",
+        "fix": "eslint --fix ./src",
+        "lint": "eslint ./src && jsonlint --quiet ./snippets/*.json",
         "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "vscode-linter",
-        "vscode:prepublish": "webpack --mode production && gulp"
+        "start": "NODE_ENV=development rollup --watch --config",
+        "test": "npm run lint",
+        "vscode:prepublish": "npm run build && gulp"
     },
     "keywords": [
         "nsis",
@@ -31,23 +36,30 @@
         "url": "https://github.com/idleberg/vscode-pynsist/issues"
     },
     "dependencies": {
-        "open": "^6.0.0"
+        "open": "^7.3.0",
+        "vscode-get-config": "^0.1.1"
     },
     "devDependencies": {
+        "@rollup/plugin-commonjs": "^15.1.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^9.0.0",
+        "@rollup/plugin-typescript": "^6.0.0",
         "@types/node": "^12.7.3",
+        "@typescript-eslint/eslint-plugin": "^4.5.0",
+        "@typescript-eslint/parser": "^4.5.0",
         "babel-core": "^6.26.3",
         "babel-preset-es2015": "^6.24.1",
+        "eslint": "^7.11.0",
         "gulp": "^4.0.2",
         "gulp-raster": "^0.2.0",
         "gulp-rename": "^1.4.0",
         "husky": "^3.0.4",
-        "ts-loader": "^6.0.2",
-        "tslint": "^5.19.0",
-        "typescript": "^3.6.2",
+        "rollup": "^2.32.1",
+        "rollup-plugin-filesize": "^9.0.2",
+        "rollup-plugin-terser": "^7.0.2",
+        "typescript": "^4.0.3",
         "vscode": "^1.1.36",
-        "vscode-linter": "^0.2.2",
-        "webpack": "^4.39.3",
-        "webpack-cli": "^3.3.7"
+        "vscode-linter": "^0.2.2"
     },
     "husky": {
         "hooks": {
