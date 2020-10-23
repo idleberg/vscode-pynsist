@@ -7,3 +7,4 @@ package-lock.json
 todo.md
 tsconfig.tsbuildinfo
 vendor/
+yarn.lock
