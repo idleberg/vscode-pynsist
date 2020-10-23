@@ -1,63 +1,71 @@
-'use strict';
-
 // Dependencies
-import * as open from 'open';
-import { spawn } from 'child_process';
-import { existsSync } from 'fs';
+import { constants, promises as fs } from 'fs';
+import { getConfig } from 'vscode-get-config';
+import { join } from 'path';
 import { platform } from 'os';
-import { basename, dirname, extname, join } from 'path';
-import { window, workspace } from 'vscode';
+import { spawn } from 'child_process';
+import { window } from 'vscode';
+import open from 'open';
 
-const clearOutput = (channel) => {
-  let config: any = getConfig();
+// eslint-disable-next-line
+async function clearOutput(channel: any): Promise<void> {
+  const { alwaysShowOutput } = await getConfig('pynsist');
 
   channel.clear();
-  if (config.alwaysShowOutput === true) {
+  if (alwaysShowOutput === true) {
     channel.show(true);
   }
-};
+}
 
-const detectOutput = (relativePath, line, needle) => {
-  if (line.indexOf(needle.string) !== -1) {
-    let regex = needle.regex;
-    let result = regex.exec(line.toString());
-    let absolutePath = join(relativePath, result[1]);
+async function detectOutput(relativePath: string, line: string, needle: DetectOutputOptions): Promise<string> {
+  if (line.includes(needle.string)) {
+    const regex = needle.regex;
+    const result = regex.exec(line.toString());
+    const absolutePath = join(relativePath, result[1]);
 
-    try {
-      return (existsSync(absolutePath) === true) ? absolutePath : '';
-    } catch (e) {
-      return '';
-    }
+    return (await fileExists(absolutePath))
+      ? absolutePath
+      : '';
   }
 
   return '';
-};
+}
 
-const getConfig = () => {
-  return workspace.getConfiguration('pynsist');
-};
-
-const getPrefix = () => {
-  if (platform() === 'win32') {
-    return '/';
+async function fileExists(filePath: string): Promise<boolean> {
+  try {
+    await fs.access(filePath, constants.F_OK);
+  } catch (err) {
+    return false;
   }
 
-  return '-';
-};
+  return true;
+}
 
-const getPath = () => {
+
+function getPrefix(): string {
+  return platform() === 'win32'
+    ? '/'
+    : '-';
+}
+
+async function getPath(): Promise<string | number> {
+  const pathToPynsist = await getConfig('pynsist.pathToPynsist') || 'pynsist';
+  
   return new Promise((resolve, reject) => {
-    let pathToPynsist = getConfig().pathToPynsist;
-    if (typeof pathToPynsist !== 'undefined' && pathToPynsist !== null && pathToPynsist !== '') {
+    if (pathToPynsist) {
       console.log('Using pynsist path found in user settings: ' + pathToPynsist);
       return resolve(pathToPynsist);
     }
 
-    let which = spawn(this.which(), ['pynsist']);
+    const which = spawn(this.which(), ['pynsist']);
 
     which.stdout.on('data', (data) => {
       console.log('Using pynsist path detected on file system: ' + data);
       return resolve(data);
+    });
+
+    which.on('error', (errorMessage) => {
+      console.error({errorMessage: errorMessage});
     });
 
     which.on('close', (code) => {
@@ -66,46 +74,47 @@ const getPath = () => {
       }
     });
   });
-};
+}
 
-const pathWarning = () => {
-  window.showWarningMessage('pynsist is not installed or missing in your PATH environmental variable', 'Download', 'Help')
+function pathWarning(): void {
+  window.showWarningMessage('pynsist is not installed or missing in your PATH environment variable', 'Download', 'Help')
   .then((choice) => {
     switch (choice) {
       case 'Download':
-        return open('https://pypi.python.org/pypi/pynsist');
+        open('https://pypi.python.org/pypi/pynsist');
+        break;
+
       case 'Help':
-        return open('http://superuser.com/a/284351/195953');
+        open('http://superuser.com/a/284351/195953');
+        break;
     }
   });
-};
+}
 
-const runInstaller = (outFile) => {
-  let config: any = getConfig();
+async function runInstaller(outFile: string): Promise<void> {
+  const { useWineToRun } = getConfig('pynsist');
 
   if (platform() === 'win32') {
     // Setting shell to true seems to prevent spawn UNKNOWN errors
-    return spawn(outFile, [], { shell: true});
-  } else if (config.useWineToRun === true) {
-    return spawn('wine', [ outFile ]);
+    spawn(outFile, [], { shell: true});
+  } else if (useWineToRun === true) {
+    spawn('wine', [ outFile ]);
   }
-};
+}
 
-const sanitize = (response: Object) => {
+function sanitize(response: unknown): string {
   return response.toString().trim();
-};
+}
 
-const which = () => {
-  if (platform() === 'win32') {
-    return 'where';
-  }
-  return 'which';
-};
+function which(): string {
+  return platform() === 'win32'
+    ? 'where'
+    : 'which';
+}
 
 export {
   clearOutput,
   detectOutput,
-  getConfig,
   getPrefix,
   getPath,
   pathWarning,

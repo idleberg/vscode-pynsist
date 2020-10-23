@@ -1,12 +1,11 @@
-'use strict';
-
 // Dependencies
-import { spawn } from 'child_process';
 import { dirname } from 'path';
+import { getConfig } from 'vscode-get-config';
+import { spawn } from 'child_process';
 import { workspace, window } from 'vscode';
 
 // Package Components
-import { clearOutput, detectOutput, getConfig, getPath, pathWarning, runInstaller, sanitize } from './util';
+import { clearOutput, detectOutput, getPath, pathWarning, runInstaller, sanitize } from './util';
 
 const channel = window.createOutputChannel('pynsist');
 
@@ -15,20 +14,20 @@ const channel = window.createOutputChannel('pynsist');
  *  https://pypi.python.org/pypi/pynsist
  *  https://github.com/takluyver/pynsist
  */
-const generate = (runMakensis) => {
-  clearOutput(channel);
+async function generate(runMakensis: boolean): Promise<void> {
+  await clearOutput(channel);
 
-  let doc = window.activeTextEditor.document;
+  const doc = window.activeTextEditor.document;
 
   if (window.activeTextEditor['_documentData']['_languageId'] !== 'properties' && doc.fileName === 'installer.cfg') {
     channel.appendLine('This command is only available for Pynsist Configuraiton files');
     return;
   }
 
-  let config: any = getConfig();
+  const { showNotifications } = await getConfig('pynsist');
 
-  doc.save().then( () => {
-    getPath()
+  doc.save().then( async () => {
+    await getPath()
     .then(sanitize)
     .then( (pathToPynsist: string) => {
 
@@ -36,7 +35,8 @@ const generate = (runMakensis) => {
         return window.showErrorMessage('No valid `pynsist` was specified in your config');
       }
 
-      let defaultArguments: Array<string> = [doc.fileName];
+      const defaultArguments: Array<string> = [doc.fileName];
+
       if (runMakensis === false) {
         defaultArguments.push('--no-makensis');
       }
@@ -44,37 +44,36 @@ const generate = (runMakensis) => {
       // Let's build
       const pynsist = spawn(pathToPynsist, defaultArguments);
 
-      let scriptPath: string = dirname(doc.fileName);
-      let outScript: string = '';
-      let outFile: string = '';
+      const scriptPath: string = dirname(doc.fileName);
+      let outScript = '';
+      let outFile = '';
 
-      pynsist.stdout.on('data', (line: Array<any>) => {
+      pynsist.stdout.on('data', (line: string) => {
         channel.appendLine(line.toString().trim());
       });
 
       // pynsist currently outputs to stderr only (v1.12)
-      pynsist.stderr.on('data', (line: Array<any>) => {
+      pynsist.stderr.on('data', async (line: string) => {
         channel.appendLine(line.toString().trim());
 
         if (outScript === '') {
-          outScript = detectOutput(scriptPath, line, { string: 'Writing NSI file to ', regex: /Writing NSI file to (.*)\r?\n/g });
+          outScript = await detectOutput(scriptPath, line, { string: 'Writing NSI file to ', regex: /Writing NSI file to (.*)\r?\n/g });
         }
 
         if (outFile === '' && runMakensis === true) {
-          outFile = detectOutput(scriptPath, line, { string: 'Installer written to ', regex: /Installer written to (.*)\r?\n/g });
+          outFile = await detectOutput(scriptPath, line, { string: 'Installer written to ', regex: /Installer written to (.*)\r?\n/g });
         }
       });
 
-      pynsist.on('close', (code) => {
+      pynsist.on('close', async code => {
         if (code === 0) {
-          if (config.showNotifications) {
-            let btnPrimary, btnSecondary;
+          if (showNotifications) {
 
             if (runMakensis === true) {
               window.showInformationMessage('Successfully compiled installer', 'Run Installer', 'Open Script')
-              .then((choice) => {
+              .then(async choice => {
                 if (choice === 'Run Installer') {
-                  runInstaller(outFile);
+                  await runInstaller(outFile);
                 } else if (choice === 'Open Script') {
                   workspace.openTextDocument(outScript)
                   .then( (doc) => {
@@ -96,12 +95,12 @@ const generate = (runMakensis) => {
           }
         } else {
           channel.show(true);
-          if (config.showNotifications) window.showErrorMessage('Something went wrong. See the output for details.');
+          if (showNotifications) window.showErrorMessage('Something went wrong. See the output for details.');
         }
       });
     })
     .catch(pathWarning);
   });
-};
+}
 
 export { generate };

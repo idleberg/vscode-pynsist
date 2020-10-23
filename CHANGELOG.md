@@ -1,3 +1,10 @@
+# v0.10.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/0.10.0)
+
+- add support for variable substition when reading config
+- builds with Rollup
+- lints with ESLint
+- update dependencies
+
 # v0.9.2 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/0.9.2)
 
 - add `idleberg.nsis` dependency for script highlighting

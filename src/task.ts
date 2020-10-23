@@ -1,37 +1,36 @@
-'use babel';
-
 // Dependencies
-import { mkdir, writeFile } from 'fs';
+import { getConfig } from 'vscode-get-config';
 import { join } from 'path';
+import { mkdir, writeFile } from 'fs';
 import { workspace, window } from 'vscode';
 
 // Package Components
-import { getConfig, getPath, sanitize } from './util';
+import { getPath, sanitize } from './util';
 
-const createTask = () => {
+async function createTask(): Promise<void> {
   if (typeof workspace.rootPath === 'undefined' || workspace.rootPath === null) {
-    return window.showErrorMessage('Task support is only available when working on a workspace folder. It is not available when editing single files.');
+    window.showErrorMessage('Task support is only available when working on a workspace folder. It is not available when editing single files.');
+    return;
   }
 
   getPath()
   .then(sanitize)
-  .then( (pathToPynsist: string) => {
-    const { version } = require('../package.json');
+  .then( async(pathToPynsist: string) => {
 
-    const taskFile: Object = {
+    const taskFile: unknown = {
       'version': '2.0.0',
       'tasks': [
         {
           'label': 'pynsist: Compile Installer',
           'type': 'shell',
-          'command': 'pynsist',
+          'command': `${pathToPynsist}`,
           'args': [ '${file}' ],
           'group': 'build'
         },
         {
           'label': 'pynsist: Generate Script',
           'type': 'shell',
-          'command': 'pynsist',
+          'command': `${pathToPynsist}`,
           'args': [ '--no-makensis', '${file}' ],
           'group': 'build'
         }
@@ -42,13 +41,14 @@ const createTask = () => {
     const dotFolder: string = join(workspace.rootPath, '/.vscode');
     const buildFile: string = join(dotFolder, 'tasks.json');
 
-    mkdir(dotFolder, (error) => {
+    mkdir(dotFolder, () => {
       // ignore errors for now
-      writeFile(buildFile, jsonString, (error) => {
+      writeFile(buildFile, jsonString, async (error) => {
         if (error) {
-          return window.showErrorMessage(error.toString());
+          window.showErrorMessage(error.toString());
+          return;
         }
-        if (getConfig().alwaysOpenBuildTask === false) return;
+        if (await getConfig('pynsist.alwaysOpenBuildTask') === false) return;
 
         // Open tasks.json
         workspace.openTextDocument(buildFile).then( (doc) => {
@@ -60,6 +60,6 @@ const createTask = () => {
   .catch( error => {
     window.showErrorMessage(error.toString());
   });
-};
+}
 
 export { createTask };
