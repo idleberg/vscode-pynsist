@@ -37,7 +37,7 @@
     },
     "dependencies": {
         "open": "^7.3.0",
-        "vscode-get-config": "^0.1.1"
+        "vscode-get-config": "^0.2.0"
     },
     "devDependencies": {
         "@rollup/plugin-commonjs": "^15.1.0",
