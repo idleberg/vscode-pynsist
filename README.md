@@ -46,10 +46,10 @@ Change to your Visual Studio Code extensions directory:
 
 ```powershell
 # Windows Powershell
-cd $Env:USERPROFILES\.vscode/extensions
+cd $Env:USERPROFILES\.vscode\extensions
 
 # Windows Command Prompt
-$ cd %USERPROFILE%\.vscode/extensions
+$ cd %USERPROFILE%\.vscode\extensions
 ```
 
 ```bash
