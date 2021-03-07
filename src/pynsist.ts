@@ -18,9 +18,10 @@ async function generate(runMakensis: boolean): Promise<void> {
   await clearOutput(channel);
 
   const doc = window.activeTextEditor.document;
+  const scope = doc.languageId;
 
-  if (window.activeTextEditor['_documentData']['_languageId'] !== 'properties' && doc.fileName === 'installer.cfg') {
-    channel.appendLine('This command is only available for Pynsist Configuraiton files');
+  if (scope !== 'properties' && doc.fileName === 'installer.cfg') {
+    channel.appendLine('This command is only available for Pynsist Configuration files');
     return;
   }
 
