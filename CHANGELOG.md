@@ -1,3 +1,7 @@
+# v0.11.1 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.11.1)
+
+ - include lock-file
+
 # v0.11.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.11.0)
 
 - builds with esbuild
