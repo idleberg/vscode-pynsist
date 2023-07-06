@@ -2,16 +2,21 @@
 *.map
 .circleci/
 .editorconfig
+.eslintcache
 .eslintrc*
 .gitignore
+.github/
+.husky/
 .travis.yml
 gulpfile.js
 package-lock.json
 rollup.config.js
 src/
+tools/
 tsconfig.json
 tsconfig.tsbuildinfo
 tslint.json
+types/
 webpack.config.js
 
 # Package managers
@@ -28,5 +33,5 @@ yarn.lock
 .vscode/**
 
 # Project specific
-images/logo.svg
+resources/logo.svg
 todo.md
