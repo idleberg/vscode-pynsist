@@ -1,10 +1,9 @@
 # vscode-pynsist
 
-[![The MIT License](https://flat.badgen.net/badge/license/MIT/orange)](http://opensource.org/licenses/MIT)
-[![GitHub](https://flat.badgen.net/github/release/idleberg/vscode-pynsist)](https://github.com/idleberg/vscode-pynsist/releases)
-[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs-short/idleberg.pynsist.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=idleberg.pynsist)
-[![CircleCI](https://flat.badgen.net/circleci/github/idleberg/vscode-pynsist)](https://circleci.com/gh/idleberg/vscode-pynsist)
-[![David](https://flat.badgen.net/david/dep/idleberg/vscode-pynsist)](https://david-dm.org/idleberg/vscode-pynsist)
+[![License](https://img.shields.io/github/license/idleberg/vscode-pynsist?style=for-the-badge)](LICENSE)
+[![Version](https://img.shields.io/github/v/release/idleberg/vscode-pynsist?style=for-the-badge)](https://github.com/idleberg/vscode-pynsist/releases)
+[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/idleberg.pynsist?style=for-the-badge)](https://marketplace.visualstudio.com/items?itemName=idleberg.pynsist)
+[![Build](https://img.shields.io/github/actions/workflow/status/idleberg/vscode-pynsist/default.yml?style=for-the-badge)](https://github.com/idleberg/vscode-pynsist/actions)
 
 Language support, snippets and build-system for [pynsist](https://pypi.python.org/pypi/pynsist), a tool to build Windows installers for your Python applications
 
