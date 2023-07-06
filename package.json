@@ -63,7 +63,7 @@
         "npm-run-all2": "^6.0.6",
         "typescript": "^5.1.6"
     },
-    "icon": "images/logo.png",
+    "icon": "resources/logo.png",
     "galleryBanner": {
         "color": "#323232",
         "theme": "dark"
@@ -147,24 +147,24 @@
                 "command": "extension.pynsist.generate",
                 "title": "pynsist: Generate Script",
                 "icon": {
-                    "dark": "./images/icon--script-dark.svg",
-                    "light": "./images/icon--script-light.svg"
+                    "dark": "./resources/icon--script-dark.svg",
+                    "light": "./resources/icon--script-light.svg"
                 }
             },
             {
                 "command": "extension.pynsist.compile",
                 "title": "pynsist: Compile Installer",
                 "icon": {
-                    "dark": "./images/icon--installer-dark.svg",
-                    "light": "./images/icon--installer-light.svg"
+                    "dark": "./resources/icon--installer-dark.svg",
+                    "light": "./resources/icon--installer-light.svg"
                 }
             },
             {
                 "command": "extension.pynsist.create-build-task",
                 "title": "pynsist: Create Build Task",
                 "icon": {
-                    "dark": "./images/icon--task-dark.svg",
-                    "light": "./images/icon--task-light.svg"
+                    "dark": "./resources/icon--task-dark.svg",
+                    "light": "./resources/icon--task-light.svg"
                 }
             }
         ],

@@ -7,7 +7,7 @@ on:
     paths:
     - '.github/**'
     - 'config/**'
-    - 'images/**'
+    - 'resources/**'
     - 'snippets/**'
     - 'src/**'
     - 'syntaxes/**'
@@ -20,7 +20,7 @@ on:
     paths:
     - '.github/**'
     - 'config/**'
-    - 'images/**'
+    - 'resources/**'
     - 'snippets/**'
     - 'src/**'
     - 'syntaxes/**'
