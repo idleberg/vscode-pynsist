@@ -7,7 +7,7 @@
 
 Language support, snippets and build-system for [pynsist](https://pypi.python.org/pypi/pynsist), a tool to build Windows installers for your Python applications
 
-![Screenshot](https://raw.github.com/idleberg/vscode-pynsist/master/screenshot.gif)
+![Screenshot](https://raw.github.com/idleberg/vscode-pynsist/main/resources/screenshot.gif)
 
 *See Pynsist in action*
 
