@@ -4,10 +4,18 @@
 import { commands, ExtensionContext } from 'vscode';
 
 // Package Components
-import { generate } from './pynsist';
 import { createTask} from './task';
+import { generate } from './pynsist';
+import { getConfig } from 'vscode-get-config';
+import { reporter } from './telemetry';
 
 async function activate(context: ExtensionContext): Promise<void> {
+  const { disableTelemetry } = await getConfig('pynsist');
+
+  if (disableTelemetry === false) {
+    context.subscriptions.push(reporter);
+  }
+
     context.subscriptions.push(
       commands.registerTextEditorCommand('extension.pynsist.generate', () => {
         generate(false);

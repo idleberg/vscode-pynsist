@@ -87,28 +87,39 @@
                 "pynsist.pathToPynsist": {
                     "type": "string",
                     "default": "",
-                    "markdownDescription": "%pynsistPathToPynsist%"
+                    "markdownDescription": "%pynsistPathToPynsist%",
+										"order": 1
                 },
                 "pynsist.showNotifications": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Show build notifications indicating success or failure"
+                    "description": "Show build notifications indicating success or failure",
+										"order": 2
                 },
                 "pynsist.alwaysOpenBuildTask": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Specify whether to open the newly created build task"
+                    "description": "Specify whether to open the newly created build task",
+										"order": 3
                 },
                 "pynsist.alwaysShowOutput": {
                     "type": "boolean",
                     "default": true,
-                    "markdownDescription": "%pynsistAlwaysShowOutput%"
+                    "markdownDescription": "%pynsistAlwaysShowOutput%",
+										"order": 4
                 },
                 "pynsist.useWineToRun": {
                     "type": "boolean",
                     "default": false,
-                    "markdownDescription": "%pynsistUseWineToRun%"
-                }
+                    "markdownDescription": "%pynsistUseWineToRun%",
+										"order": 5
+                },
+								"pynsist.disableTelemetry": {
+									"type": "boolean",
+									"default": false,
+									"description": "Disables extension telemetry, even though the global preferences might allow tracking",
+									"order": 6
+								}
             }
         },
         "languages": [

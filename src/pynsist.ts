@@ -6,6 +6,7 @@ import { workspace, window } from 'vscode';
 
 // Package Components
 import { clearOutput, detectOutput, getPath, pathWarning, runInstaller, sanitize } from './util';
+import { sendTelemetryEvent } from './telemetry';
 
 const channel = window.createOutputChannel('pynsist');
 
@@ -42,6 +43,8 @@ async function generate(runMakensis: boolean): Promise<void> {
         defaultArguments.push('--no-makensis');
       }
 
+      let hasErrors = false;
+
       // Let's build
       const pynsist = spawn(pathToPynsist, defaultArguments);
 
@@ -55,6 +58,7 @@ async function generate(runMakensis: boolean): Promise<void> {
 
       // pynsist currently outputs to stderr only (v1.12)
       pynsist.stderr.on('data', async (line: string) => {
+        hasErrors = true;
         channel.appendLine(line.toString().trim());
 
         if (outScript === '') {
@@ -67,6 +71,11 @@ async function generate(runMakensis: boolean): Promise<void> {
       });
 
       pynsist.on('close', async code => {
+        await sendTelemetryEvent('generate', {
+          compile: runMakensis,
+          hasErrors,
+        });
+
         if (code === 0) {
           if (showNotifications) {
 
