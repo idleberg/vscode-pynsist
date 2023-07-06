@@ -42,6 +42,7 @@
         "url": "https://github.com/idleberg/vscode-pynsist/issues"
     },
     "dependencies": {
+        "@vscode/extension-telemetry": "^0.8.1",
         "open": "^9.1.0",
         "vscode-get-config": "^0.4.0"
     },
@@ -88,38 +89,38 @@
                     "type": "string",
                     "default": "",
                     "markdownDescription": "%pynsistPathToPynsist%",
-										"order": 1
+                    "order": 1
                 },
                 "pynsist.showNotifications": {
                     "type": "boolean",
                     "default": true,
                     "description": "Show build notifications indicating success or failure",
-										"order": 2
+                    "order": 2
                 },
                 "pynsist.alwaysOpenBuildTask": {
                     "type": "boolean",
                     "default": true,
                     "description": "Specify whether to open the newly created build task",
-										"order": 3
+                    "order": 3
                 },
                 "pynsist.alwaysShowOutput": {
                     "type": "boolean",
                     "default": true,
                     "markdownDescription": "%pynsistAlwaysShowOutput%",
-										"order": 4
+                    "order": 4
                 },
                 "pynsist.useWineToRun": {
                     "type": "boolean",
                     "default": false,
                     "markdownDescription": "%pynsistUseWineToRun%",
-										"order": 5
+                    "order": 5
                 },
-								"pynsist.disableTelemetry": {
-									"type": "boolean",
-									"default": false,
-									"description": "Disables extension telemetry, even though the global preferences might allow tracking",
-									"order": 6
-								}
+                "pynsist.disableTelemetry": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Disables extension telemetry, even though the global preferences might allow tracking",
+                    "order": 6
+                }
             }
         },
         "languages": [
