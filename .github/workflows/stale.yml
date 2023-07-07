@@ -1,4 +1,5 @@
 name: 'Stale issues and PR'
+
 on:
   schedule:
     - cron: '30 1 * * *'
