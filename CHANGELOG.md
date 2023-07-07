@@ -1,6 +1,7 @@
 # v0.12.2 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.12.2)
 
 - update lockfile
+
 # v0.12.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.12.0)
 
 - add telemetry
