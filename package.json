@@ -148,24 +148,24 @@
                 "command": "extension.pynsist.generate",
                 "title": "pynsist: Generate Script",
                 "icon": {
-                    "dark": "./resources/icon--script-dark.svg",
-                    "light": "./resources/icon--script-light.svg"
+                    "dark": "./resources/dark/script.svg",
+                    "light": "./resources/light/script.svg"
                 }
             },
             {
                 "command": "extension.pynsist.compile",
                 "title": "pynsist: Compile Installer",
                 "icon": {
-                    "dark": "./resources/icon--installer-dark.svg",
-                    "light": "./resources/icon--installer-light.svg"
+                    "dark": "./resources/dark/installer.svg",
+                    "light": "./resources/light/installer.svg"
                 }
             },
             {
                 "command": "extension.pynsist.create-build-task",
                 "title": "pynsist: Create Build Task",
                 "icon": {
-                    "dark": "./resources/icon--task-dark.svg",
-                    "light": "./resources/icon--task-light.svg"
+                    "dark": "./resources/dark/task.svg",
+                    "light": "./resources/light/task.svg"
                 }
             }
         ],
