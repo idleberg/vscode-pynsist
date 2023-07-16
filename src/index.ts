@@ -1,7 +1,7 @@
 'use strict';
 
 // Dependencies
-import { commands, ExtensionContext } from 'vscode';
+import { commands, env, type ExtensionContext } from 'vscode';
 
 // Package Components
 import { createTask} from './task';
@@ -12,25 +12,25 @@ import { reporter } from './telemetry';
 async function activate(context: ExtensionContext): Promise<void> {
   const { disableTelemetry } = await getConfig('pynsist');
 
-  if (disableTelemetry === false) {
+  if (env.appName !== 'VSCodium' && disableTelemetry === false) {
     context.subscriptions.push(reporter);
   }
 
-    context.subscriptions.push(
-      commands.registerTextEditorCommand('extension.pynsist.generate', () => {
-        generate(false);
-      })
-    );
-    context.subscriptions.push(
-      commands.registerTextEditorCommand('extension.pynsist.compile', () => {
-        generate(true);
-      })
-    );
-    context.subscriptions.push(
-      commands.registerTextEditorCommand('extension.pynsist.create-build-task', () => {
-        createTask();
-      })
-    );
+	context.subscriptions.push(
+		commands.registerTextEditorCommand('extension.pynsist.generate', () => {
+			generate(false);
+		})
+	);
+	context.subscriptions.push(
+		commands.registerTextEditorCommand('extension.pynsist.compile', () => {
+			generate(true);
+		})
+	);
+	context.subscriptions.push(
+		commands.registerTextEditorCommand('extension.pynsist.create-build-task', () => {
+			createTask();
+		})
+	);
 }
 
 export { activate };
