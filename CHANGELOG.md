@@ -1,3 +1,7 @@
+# v0.12.3 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.12.3)
+
+- update dependencies
+
 # v0.12.2 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.12.2)
 
 - update lockfile
