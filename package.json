@@ -9,7 +9,7 @@
 				"name": "Jan T. Sott",
 				"url": "http://github.com/idleberg"
 		},
-		"main": "./lib/index",
+		"main": "./lib/index.js",
 		"typings": "./types",
 		"scripts": {
 				"compile": "npm run build",
