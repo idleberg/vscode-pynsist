@@ -1,208 +1,221 @@
 {
-		"name": "pynsist",
-		"displayName": "pynsist",
-		"description": "Language support, snippets and build-system for pynsist, a tool to build Windows installers for your Python applications",
-		"version": "0.12.3",
-		"publisher": "idleberg",
-		"license": "MIT OR GPL-2.0",
-		"author": {
-				"name": "Jan T. Sott",
-				"url": "http://github.com/idleberg"
-		},
-		"main": "./lib/index.js",
-		"typings": "./types",
-		"scripts": {
-				"compile": "npm run build",
-				"build": "npm-run-all --parallel build:*",
-				"build:code": "tsup",
-				"build:icon": "gulp",
-				"dev": "npm run start",
-				"fix": "eslint --fix ./src",
-				"lint:json": "eslint --ext .json --ignore-path .gitignore",
-				"lint:ts": "eslint ./src --ignore-path .gitignore",
-				"lint:yaml": "eslint --ext .yaml --ext .yml --ignore-path .gitignore",
-				"lint": "npm-run-all --parallel lint:*",
-				"package": "vsce package --no-dependencies --githubBranch main",
-				"publish": "vsce publish --no-dependencies --githubBranch main",
-				"start": "npm run build:code -- --watch",
-				"test": "npm run lint",
-				"vscode:prepublish": "npm run build"
-		},
-		"keywords": [
-				"nsis",
-				"pynsist",
-				"python"
-		],
-		"repository": {
-				"type": "git",
-				"url": "https://github.com/idleberg/vscode-pynsist"
-		},
-		"homepage": "https://github.com/idleberg/vscode-pynsist#readme",
-		"bugs": {
-				"url": "https://github.com/idleberg/vscode-pynsist/issues"
-		},
-		"dependencies": {
-				"@vscode/extension-telemetry": "^0.9.6",
-				"open": "^10.1.0",
-				"vscode-get-config": "^0.4.0"
-		},
-		"devDependencies": {
-				"@types/node": "^16.18.38",
-				"@types/vscode": "^1.75.0",
-				"@typescript-eslint/eslint-plugin": "^7.4.0",
-				"@typescript-eslint/parser": "^7.4.0",
-				"cross-env": "^7.0.3",
-				"eslint": "^8.57.0",
-				"eslint-plugin-json": "^3.1.0",
-				"eslint-plugin-yaml": "^0.5.0",
-				"gulp": "^5.0.0",
-				"gulp-raster": "^0.2.0",
-				"gulp-rename": "^2.0.0",
-				"husky": "^9.0.11",
-				"lint-staged": "^15.2.2",
-				"npm-run-all2": "^6.1.2",
-				"tsup": "^8.0.2",
-				"typescript": "^5.4.3"
-		},
-		"activationEvents": [
-				"onStartupFinished"
-		],
-		"icon": "resources/logo.png",
-		"galleryBanner": {
-				"color": "#323232",
-				"theme": "dark"
-		},
-		"engines": {
-				"vscode": "^1.75.0"
-		},
-		"categories": [
-				"Programming Languages",
-				"Snippets",
-				"Other"
-		],
-		"contributes": {
-				"configuration": {
-						"type": "object",
-						"title": "pynsist",
-						"properties": {
-								"pynsist.pathToPynsist": {
-										"type": "string",
-										"default": "",
-										"markdownDescription": "%pynsistPathToPynsist%",
-										"order": 1
-								},
-								"pynsist.showNotifications": {
-										"type": "boolean",
-										"default": true,
-										"description": "Show build notifications indicating success or failure",
-										"order": 2
-								},
-								"pynsist.alwaysOpenBuildTask": {
-										"type": "boolean",
-										"default": true,
-										"description": "Specify whether to open the newly created build task",
-										"order": 3
-								},
-								"pynsist.alwaysShowOutput": {
-										"type": "boolean",
-										"default": true,
-										"markdownDescription": "%pynsistAlwaysShowOutput%",
-										"order": 4
-								},
-								"pynsist.useWineToRun": {
-										"type": "boolean",
-										"default": false,
-										"markdownDescription": "%pynsistUseWineToRun%",
-										"order": 5
-								},
-								"pynsist.disableTelemetry": {
-										"type": "boolean",
-										"default": false,
-										"description": "Disables extension telemetry, even though the global preferences might allow tracking",
-										"order": 6
-								}
-						}
+	"name": "pynsist",
+	"displayName": "pynsist",
+	"description": "Language support, snippets and build-system for pynsist, a tool to build Windows installers for your Python applications",
+	"version": "0.12.3",
+	"publisher": "idleberg",
+	"license": "MIT OR GPL-2.0",
+	"author": {
+		"name": "Jan T. Sott",
+		"url": "http://github.com/idleberg"
+	},
+	"main": "./lib/index.js",
+	"typings": "./types",
+	"scripts": {
+		"compile": "npm run build",
+		"build": "npm-run-all --parallel build:*",
+		"build:code": "tsup",
+		"build:icon": "gulp",
+		"dev": "npm run start",
+		"fix": "eslint --fix ./src",
+		"lint:json": "eslint --ext .json --ignore-path .gitignore",
+		"lint:ts": "eslint ./src --ignore-path .gitignore",
+		"lint:yaml": "eslint --ext .yaml --ext .yml --ignore-path .gitignore",
+		"lint": "npm-run-all --parallel lint:*",
+		"package": "vsce package --no-dependencies --githubBranch main",
+		"publish": "vsce publish --no-dependencies --githubBranch main",
+		"start": "npm run build:code -- --watch",
+		"test": "npm run lint",
+		"vscode:prepublish": "npm run build"
+	},
+	"keywords": [
+		"nsis",
+		"pynsist",
+		"python"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/idleberg/vscode-pynsist"
+	},
+	"homepage": "https://github.com/idleberg/vscode-pynsist#readme",
+	"bugs": {
+		"url": "https://github.com/idleberg/vscode-pynsist/issues"
+	},
+	"dependencies": {
+		"@vscode/extension-telemetry": "^0.9.6",
+		"open": "^10.1.0",
+		"vscode-get-config": "^0.4.0"
+	},
+	"devDependencies": {
+		"@types/node": "^16.18.38",
+		"@types/vscode": "^1.75.0",
+		"@typescript-eslint/eslint-plugin": "^7.4.0",
+		"@typescript-eslint/parser": "^7.4.0",
+		"cross-env": "^7.0.3",
+		"eslint": "^8.57.0",
+		"eslint-plugin-json": "^3.1.0",
+		"eslint-plugin-yaml": "^0.5.0",
+		"gulp": "^5.0.0",
+		"gulp-raster": "^0.2.0",
+		"gulp-rename": "^2.0.0",
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.2",
+		"npm-run-all2": "^6.1.2",
+		"tsup": "^8.0.2",
+		"typescript": "^5.4.3"
+	},
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"icon": "resources/logo.png",
+	"galleryBanner": {
+		"color": "#323232",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "^1.75.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Snippets",
+		"Other"
+	],
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "pynsist",
+			"properties": {
+				"pynsist.pathToPynsist": {
+					"type": "string",
+					"default": "",
+					"markdownDescription": "%pynsistPathToPynsist%",
+					"order": 1
 				},
-				"languages": [
-						{
-								"id": "pynsist",
-								"aliases": [
-										"Pynsist Configuration",
-										"Pynsist"
-								],
-								"extensions": [
-										"installer.cfg"
-								],
-								"configuration": "./config/pynsist.json"
-						}
-				],
-				"grammars": [
-						{
-								"language": "pynsist",
-								"scopeName": "source.cfg.pynsist",
-								"path": "./syntaxes/pynsist.tmLanguage"
-						}
-				],
-				"commands": [
-						{
-								"command": "extension.pynsist.generate",
-								"title": "pynsist: Generate Script",
-								"icon": {
-										"dark": "./resources/dark/script.svg",
-										"light": "./resources/light/script.svg"
-								}
-						},
-						{
-								"command": "extension.pynsist.compile",
-								"title": "pynsist: Compile Installer",
-								"icon": {
-										"dark": "./resources/dark/installer.svg",
-										"light": "./resources/light/installer.svg"
-								}
-						},
-						{
-								"command": "extension.pynsist.create-build-task",
-								"title": "pynsist: Create Build Task",
-								"icon": {
-										"dark": "./resources/dark/task.svg",
-										"light": "./resources/light/task.svg"
-								}
-						}
-				],
-				"menus": {
-						"editor/title": [
-								{
-										"when": "resourceLangId == pynsist",
-										"command": "extension.pynsist.compile",
-										"group": "navigation@1"
-								},
-								{
-										"when": "resourceLangId == pynsist",
-										"command": "extension.pynsist.generate",
-										"group": "navigation@2"
-								},
-								{
-										"when": "resourceLangId == pynsist",
-										"command": "extension.pynsist.create-build-task",
-										"group": "navigation@3"
-								}
-						]
+				"pynsist.showNotifications": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show build notifications indicating success or failure",
+					"order": 2
 				},
-				"snippets": [
-						{
-								"language": "pynsist",
-								"path": "./snippets/nsis.json"
-						},
-						{
-								"language": "pynsist",
-								"path": "./snippets/pynsist.json"
-						}
-				]
+				"pynsist.alwaysOpenBuildTask": {
+					"type": "boolean",
+					"default": true,
+					"description": "Specify whether to open the newly created build task",
+					"order": 3
+				},
+				"pynsist.alwaysShowOutput": {
+					"type": "boolean",
+					"default": true,
+					"markdownDescription": "%pynsistAlwaysShowOutput%",
+					"order": 4
+				},
+				"pynsist.useWineToRun": {
+					"type": "boolean",
+					"default": false,
+					"markdownDescription": "%pynsistUseWineToRun%",
+					"order": 5
+				},
+				"pynsist.disableTelemetry": {
+					"type": "boolean",
+					"default": false,
+					"description": "Disables extension telemetry, even though the global preferences might allow tracking",
+					"order": 6
+				}
+			}
 		},
-		"extensionDependencies": [
-				"idleberg.nsis"
+		"languages": [
+			{
+				"id": "pynsist",
+				"aliases": [
+					"Pynsist Configuration",
+					"Pynsist"
+				],
+				"extensions": [
+					"installer.cfg"
+				],
+				"configuration": "./config/pynsist.json"
+			}
 		],
-		"lint-staged": {
-				"*.(ts|json|yml)": "eslint --cache --fix"
-		}
+		"grammars": [
+			{
+				"language": "pynsist",
+				"scopeName": "source.cfg.pynsist",
+				"path": "./syntaxes/pynsist.tmLanguage"
+			}
+		],
+		"commands": [
+			{
+				"command": "extension.pynsist.generate",
+				"title": "pynsist: Generate Script",
+				"icon": {
+					"dark": "./resources/dark/script.svg",
+					"light": "./resources/light/script.svg"
+				}
+			},
+			{
+				"command": "extension.pynsist.compile",
+				"title": "pynsist: Compile Installer",
+				"icon": {
+					"dark": "./resources/dark/installer.svg",
+					"light": "./resources/light/installer.svg"
+				}
+			},
+			{
+				"command": "extension.pynsist.create-build-task",
+				"title": "pynsist: Create Build Task",
+				"icon": {
+					"dark": "./resources/dark/task.svg",
+					"light": "./resources/light/task.svg"
+				}
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"when": "resourceLangId == pynsist",
+					"command": "extension.pynsist.compile",
+					"group": "navigation@1"
+				},
+				{
+					"when": "resourceLangId == pynsist",
+					"command": "extension.pynsist.generate",
+					"group": "navigation@2"
+				},
+				{
+					"when": "resourceLangId == pynsist",
+					"command": "extension.pynsist.create-build-task",
+					"group": "navigation@3"
+				}
+			]
+		},
+		"snippets": [
+			{
+				"language": "pynsist",
+				"path": "./snippets/nsis.json"
+			},
+			{
+				"language": "pynsist",
+				"path": "./snippets/pynsist.json"
+			}
+		]
+	},
+	"extensionDependencies": [
+		"idleberg.nsis"
+	],
+	"lint-staged": {
+		"*.(ts|json|yml)": "eslint --cache --fix"
+	},
+	"__metadata": {
+		"id": "1b56694f-ac69-4202-ac8b-c758c90e4e0d",
+		"publisherId": "d142cf02-af52-4395-9363-148909445cb3",
+		"publisherDisplayName": "idleberg",
+		"targetPlatform": "undefined",
+		"isApplicationScoped": false,
+		"updated": true,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1712050196005,
+		"pinned": false,
+		"preRelease": false
+	}
 }
