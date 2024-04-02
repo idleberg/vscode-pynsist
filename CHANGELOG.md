@@ -1,3 +1,10 @@
+# v0.13.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.13.0)
+
+- remove telemetry
+- fix build
+
+- update dependencies
+
 # v0.12.3 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.12.3)
 
 - update dependencies
