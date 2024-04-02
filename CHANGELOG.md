@@ -1,3 +1,7 @@
+# v0.13.1 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.13.1)
+
+- fix lockfile
+
 # v0.13.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.13.0)
 
 - remove telemetry
