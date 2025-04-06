@@ -125,5 +125,4 @@ export {
 	pathWarning,
 	runInstaller,
 	sanitize,
-	which,
 };
