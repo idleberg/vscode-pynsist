@@ -35,7 +35,8 @@ async function detectOutput(
 async function fileExists(filePath: string): Promise<boolean> {
 	try {
 		await fs.access(filePath, constants.F_OK);
-	} catch (_err) {
+	} catch (error) {
+		console.error(`[vscode-pynsist] ${(error as Error).message}`);
 		return false;
 	}
 
