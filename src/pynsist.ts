@@ -1,11 +1,9 @@
-// Dependencies
 import { dirname } from "path";
 // @ts-expect-error TODO Fix package
 import { getConfig } from "vscode-get-config";
 import { spawn } from "child_process";
 import { workspace, window } from "vscode";
 
-// Package Components
 import {
 	clearOutput,
 	detectOutput,

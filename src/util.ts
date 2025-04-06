@@ -1,4 +1,3 @@
-// Dependencies
 import { constants, promises as fs } from "fs";
 // @ts-expect-error TODO Fix package
 import { getConfig } from "vscode-get-config";
@@ -7,7 +6,6 @@ import { platform } from "os";
 import { spawn } from "child_process";
 import { window, type OutputChannel } from "vscode";
 import open from "open";
-import which from "which";
 
 async function clearOutput(channel: OutputChannel): Promise<void> {
 	const { alwaysShowOutput } = await getConfig("pynsist");
@@ -26,7 +24,12 @@ async function detectOutput(
 	if (line.includes(needle.string)) {
 		const regex = needle.regex;
 		const result = regex.exec(line.toString());
-		const absolutePath = join(relativePath, result[1]);
+
+		if (!result) {
+			return "";
+		}
+
+		const absolutePath = join(relativePath, result[1] || "");
 
 		return (await fileExists(absolutePath)) ? absolutePath : "";
 	}
