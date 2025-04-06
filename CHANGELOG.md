@@ -1,3 +1,8 @@
+# v0.13.2 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.13.2)
+
+- update tooling
+- update dependencies
+
 # v0.13.1 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.13.1)
 
 - fix build
@@ -25,7 +30,7 @@
 
 # v0.11.1 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.11.1)
 
- - include lock-file
+- include lock-file
 
 # v0.11.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.11.0)
 
@@ -130,4 +135,3 @@
 # v0.1.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.1.0)
 
 - first release
-
