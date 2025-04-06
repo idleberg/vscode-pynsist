@@ -33,6 +33,7 @@ async function detectOutput(relativePath: string, line: string, needle: DetectOu
 async function fileExists(filePath: string): Promise<boolean> {
   try {
     await fs.access(filePath, constants.F_OK);
+    // eslint-ignore-next-line
   } catch (_err) {
     return false;
   }
