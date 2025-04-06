@@ -7,7 +7,6 @@ import { spawn } from 'child_process';
 import { window } from 'vscode';
 import open from 'open';
 
-// eslint-disable-next-line
 async function clearOutput(channel: any): Promise<void> {
   const { alwaysShowOutput } = await getConfig('pynsist');
 
@@ -50,7 +49,7 @@ function getPrefix(): string {
 
 async function getPath(): Promise<string | number> {
   const pathToPynsist = await getConfig('pynsist.pathToPynsist') || 'pynsist';
-  
+
   return new Promise((resolve, reject) => {
     if (pathToPynsist) {
       console.log('Using pynsist path found in user settings: ' + pathToPynsist);
