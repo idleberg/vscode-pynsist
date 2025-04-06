@@ -1,11 +1,13 @@
 // Dependencies
 import { constants, promises as fs } from "fs";
+// @ts-expect-error TODO Fix package
 import { getConfig } from "vscode-get-config";
 import { join } from "path";
 import { platform } from "os";
 import { spawn } from "child_process";
 import { window, type OutputChannel } from "vscode";
 import open from "open";
+import which from "which";
 
 async function clearOutput(channel: OutputChannel): Promise<void> {
 	const { alwaysShowOutput } = await getConfig("pynsist");
@@ -58,18 +60,18 @@ async function getPath(): Promise<string | number> {
 			return resolve(pathToPynsist);
 		}
 
-		const which = spawn(this.which(), ["pynsist"]);
+		const cp = spawn("pynsist");
 
-		which.stdout.on("data", (data) => {
+		cp.stdout.on("data", (data) => {
 			console.log("Using pynsist path detected on file system: " + data);
 			return resolve(data);
 		});
 
-		which.on("error", (errorMessage) => {
+		cp.on("error", (errorMessage) => {
 			console.error({ errorMessage: errorMessage });
 		});
 
-		which.on("close", (code) => {
+		cp.on("close", (code) => {
 			if (code !== 0) {
 				return reject(code);
 			}
@@ -108,12 +110,8 @@ async function runInstaller(outFile: string): Promise<void> {
 	}
 }
 
-function sanitize(response: unknown): string {
+function sanitize(response: string): string {
 	return response.toString().trim();
-}
-
-function which(): string {
-	return platform() === "win32" ? "where" : "which";
 }
 
 export {

@@ -1,46 +1,50 @@
-// Dependencies
-import { getConfig } from 'vscode-get-config';
-import { join } from 'path';
-import { mkdir, writeFile } from 'fs';
-import { workspace, window } from 'vscode';
-
-// Package Components
-import { getPath, sanitize } from './util';
+// @ts-expect-error TODO Fix package
+import { getConfig } from "vscode-get-config";
+import { join, resolve } from "path";
+import { mkdir, writeFile } from "fs";
+import { workspace, window } from "vscode";
+import { getPath, sanitize } from "./util";
 
 async function createTask(): Promise<void> {
-	if (typeof workspace.rootPath === 'undefined' || workspace.rootPath === null) {
+	if (
+		typeof workspace.workspaceFolders === "undefined" ||
+		workspace.workspaceFolders.length < 1
+	) {
 		window.showErrorMessage(
-			'Task support is only available when working on a workspace folder. It is not available when editing single files.',
+			"Task support is only available when working on a workspace folder. It is not available when editing single files.",
 		);
 		return;
 	}
 
 	getPath()
-		.then(sanitize)
+		.then((path) => sanitize(path.toString()))
 		.then(async (pathToPynsist: string) => {
 			const taskFile: unknown = {
-				version: '2.0.0',
+				version: "2.0.0",
 				tasks: [
 					{
-						label: 'pynsist: Compile Installer',
-						type: 'shell',
+						label: "pynsist: Compile Installer",
+						type: "shell",
 						command: `${pathToPynsist}`,
-						args: ['${file}'],
-						group: 'build',
+						args: ["${file}"],
+						group: "build",
 					},
 					{
-						label: 'pynsist: Generate Script',
-						type: 'shell',
+						label: "pynsist: Generate Script",
+						type: "shell",
 						command: `${pathToPynsist}`,
-						args: ['--no-makensis', '${file}'],
-						group: 'build',
+						args: ["--no-makensis", "${file}"],
+						group: "build",
 					},
 				],
 			};
 
 			const jsonString: string = JSON.stringify(taskFile, null, 2);
-			const dotFolder: string = join(workspace.rootPath, '/.vscode');
-			const buildFile: string = join(dotFolder, 'tasks.json');
+			const dotFolder: string = resolve(
+				workspace.workspaceFolders![0]!.uri.fsPath,
+				".vscode",
+			);
+			const buildFile: string = join(dotFolder, "tasks.json");
 
 			mkdir(dotFolder, () => {
 				// ignore errors for now
@@ -49,7 +53,8 @@ async function createTask(): Promise<void> {
 						window.showErrorMessage(error.toString());
 						return;
 					}
-					if ((await getConfig('pynsist.alwaysOpenBuildTask')) === false) return;
+					if ((await getConfig("pynsist.alwaysOpenBuildTask")) === false)
+						return;
 
 					// Open tasks.json
 					workspace.openTextDocument(buildFile).then((doc) => {
