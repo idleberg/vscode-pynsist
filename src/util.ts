@@ -4,10 +4,10 @@ import { getConfig } from 'vscode-get-config';
 import { join } from 'path';
 import { platform } from 'os';
 import { spawn } from 'child_process';
-import { window } from 'vscode';
+import { window, type OutputChannel } from 'vscode';
 import open from 'open';
 
-async function clearOutput(channel: any): Promise<void> {
+async function clearOutput(channel: OutputChannel): Promise<void> {
   const { alwaysShowOutput } = await getConfig('pynsist');
 
   channel.clear();
@@ -33,7 +33,7 @@ async function detectOutput(relativePath: string, line: string, needle: DetectOu
 async function fileExists(filePath: string): Promise<boolean> {
   try {
     await fs.access(filePath, constants.F_OK);
-  } catch (err) {
+  } catch (_err) {
     return false;
   }
 
