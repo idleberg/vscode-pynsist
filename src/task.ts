@@ -5,7 +5,7 @@ import { mkdir, writeFile } from "fs";
 import { workspace, window } from "vscode";
 import { getPath, sanitize } from "./util";
 
-async function createTask(): Promise<void> {
+export async function createTask(): Promise<void> {
 	if (
 		typeof workspace.workspaceFolders === "undefined" ||
 		workspace.workspaceFolders.length < 1
@@ -67,5 +67,3 @@ async function createTask(): Promise<void> {
 			window.showErrorMessage(error.toString());
 		});
 }
-
-export { createTask };

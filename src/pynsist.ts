@@ -20,7 +20,7 @@ const channel = window.createOutputChannel("pynsist");
  *  https://pypi.python.org/pypi/pynsist
  *  https://github.com/takluyver/pynsist
  */
-async function generate(runMakensis: boolean): Promise<void> {
+export async function generate(runMakensis: boolean): Promise<void> {
 	await clearOutput(channel);
 
 	const doc = window?.activeTextEditor?.document;
@@ -133,5 +133,3 @@ async function generate(runMakensis: boolean): Promise<void> {
 			.catch(pathWarning);
 	});
 }
-
-export { generate };

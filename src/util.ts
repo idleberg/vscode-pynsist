@@ -7,7 +7,7 @@ import { spawn } from "child_process";
 import { window, type OutputChannel } from "vscode";
 import open from "open";
 
-async function clearOutput(channel: OutputChannel): Promise<void> {
+export async function clearOutput(channel: OutputChannel): Promise<void> {
 	const { alwaysShowOutput } = await getConfig("pynsist");
 
 	channel.clear();
@@ -16,7 +16,7 @@ async function clearOutput(channel: OutputChannel): Promise<void> {
 	}
 }
 
-async function detectOutput(
+export async function detectOutput(
 	relativePath: string,
 	line: string,
 	needle: DetectOutputOptions,
@@ -48,11 +48,11 @@ async function fileExists(filePath: string): Promise<boolean> {
 	return true;
 }
 
-function getPrefix(): string {
+export function getPrefix(): string {
 	return platform() === "win32" ? "/" : "-";
 }
 
-async function getPath(): Promise<string | number> {
+export async function getPath(): Promise<string | number> {
 	const pathToPynsist = (await getConfig("pynsist.pathToPynsist")) || "pynsist";
 
 	return new Promise((resolve, reject) => {
@@ -82,7 +82,7 @@ async function getPath(): Promise<string | number> {
 	});
 }
 
-function pathWarning(): void {
+export function pathWarning(): void {
 	window
 		.showWarningMessage(
 			"pynsist is not installed or missing in your PATH environment variable",
@@ -102,7 +102,7 @@ function pathWarning(): void {
 		});
 }
 
-async function runInstaller(outFile: string): Promise<void> {
+export async function runInstaller(outFile: string): Promise<void> {
 	const { useWineToRun } = getConfig("pynsist");
 
 	if (platform() === "win32") {
@@ -113,16 +113,6 @@ async function runInstaller(outFile: string): Promise<void> {
 	}
 }
 
-function sanitize(response: string): string {
+export function sanitize(response: string): string {
 	return response.toString().trim();
 }
-
-export {
-	clearOutput,
-	detectOutput,
-	getPrefix,
-	getPath,
-	pathWarning,
-	runInstaller,
-	sanitize,
-};

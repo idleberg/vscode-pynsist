@@ -2,7 +2,7 @@ import { commands, type ExtensionContext } from "vscode";
 import { createTask } from "./task";
 import { generate } from "./pynsist";
 
-async function activate(context: ExtensionContext): Promise<void> {
+export async function activate(context: ExtensionContext): Promise<void> {
 	context.subscriptions.push(
 		commands.registerTextEditorCommand("extension.pynsist.generate", () => {
 			generate(false);
@@ -22,5 +22,3 @@ async function activate(context: ExtensionContext): Promise<void> {
 		),
 	);
 }
-
-export { activate };
