@@ -1,3 +1,8 @@
+# v0.13.3 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.13.3)
+
+- do not focus output channel
+- update dependencies
+
 # v0.13.2 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.13.2)
 
 - update tooling
