@@ -12,7 +12,7 @@ export async function clearOutput(channel: OutputChannel): Promise<void> {
 
 	channel.clear();
 	if (alwaysShowOutput === true) {
-		channel.show(true);
+		channel.show();
 	}
 }
 

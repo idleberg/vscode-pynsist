@@ -122,7 +122,7 @@ export async function generate(runMakensis: boolean): Promise<void> {
 							}
 						}
 					} else {
-						channel.show(true);
+						channel.show();
 						if (showNotifications)
 							window.showErrorMessage(
 								"Something went wrong. See the output for details.",
