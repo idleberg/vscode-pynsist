@@ -6,11 +6,13 @@ on:
       - main
     paths:
       - ".github/workflows/**"
+      - ".vscode/**"
       - "config/**"
       - "images/**"
       - "snippets/**"
       - "src/**"
       - "syntaxes/**"
+      - "biome.jsonc"
       - "package.json"
       - "pnpm-lock.yaml"
   pull_request:
@@ -18,11 +20,13 @@ on:
       - main
     paths:
       - ".github/workflows/**"
+      - ".vscode/**"
       - "config/**"
       - "images/**"
       - "snippets/**"
       - "src/**"
       - "syntaxes/**"
+      - "biome.jsonc"
       - "package.json"
       - "pnpm-lock.yaml"
   workflow_dispatch:
