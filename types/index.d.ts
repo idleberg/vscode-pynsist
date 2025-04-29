@@ -1,4 +1,4 @@
 interface DetectOutputOptions {
-    string: string;
-    regex: RegExp;
+	string: string;
+	regex: RegExp;
 }

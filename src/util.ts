@@ -1,14 +1,14 @@
-import { constants, promises as fs } from "fs";
+import { spawn } from 'node:child_process';
+import { constants, promises as fs } from 'node:fs';
+import { platform } from 'node:os';
+import { join } from 'node:path';
+import open from 'open';
+import { type OutputChannel, window } from 'vscode';
 // @ts-expect-error TODO Fix package
-import { getConfig } from "vscode-get-config";
-import { join } from "path";
-import { platform } from "os";
-import { spawn } from "child_process";
-import { window, type OutputChannel } from "vscode";
-import open from "open";
+import { getConfig } from 'vscode-get-config';
 
 export async function clearOutput(channel: OutputChannel): Promise<void> {
-	const { alwaysShowOutput } = await getConfig("pynsist");
+	const { alwaysShowOutput } = await getConfig('pynsist');
 
 	channel.clear();
 	if (alwaysShowOutput === true) {
@@ -16,25 +16,21 @@ export async function clearOutput(channel: OutputChannel): Promise<void> {
 	}
 }
 
-export async function detectOutput(
-	relativePath: string,
-	line: string,
-	needle: DetectOutputOptions,
-): Promise<string> {
+export async function detectOutput(relativePath: string, line: string, needle: DetectOutputOptions): Promise<string> {
 	if (line.includes(needle.string)) {
 		const regex = needle.regex;
 		const result = regex.exec(line.toString());
 
 		if (!result) {
-			return "";
+			return '';
 		}
 
-		const absolutePath = join(relativePath, result[1] || "");
+		const absolutePath = join(relativePath, result[1] || '');
 
-		return (await fileExists(absolutePath)) ? absolutePath : "";
+		return (await fileExists(absolutePath)) ? absolutePath : '';
 	}
 
-	return "";
+	return '';
 }
 
 async function fileExists(filePath: string): Promise<boolean> {
@@ -49,32 +45,30 @@ async function fileExists(filePath: string): Promise<boolean> {
 }
 
 export function getPrefix(): string {
-	return platform() === "win32" ? "/" : "-";
+	return platform() === 'win32' ? '/' : '-';
 }
 
 export async function getPath(): Promise<string | number> {
-	const pathToPynsist = (await getConfig("pynsist.pathToPynsist")) || "pynsist";
+	const pathToPynsist = (await getConfig('pynsist.pathToPynsist')) || 'pynsist';
 
 	return new Promise((resolve, reject) => {
 		if (pathToPynsist) {
-			console.log(
-				"Using pynsist path found in user settings: " + pathToPynsist,
-			);
+			console.log(`Using pynsist path found in user settings: ${pathToPynsist}`);
 			return resolve(pathToPynsist);
 		}
 
-		const cp = spawn("pynsist");
+		const cp = spawn('pynsist');
 
-		cp.stdout.on("data", (data) => {
-			console.log("Using pynsist path detected on file system: " + data);
+		cp.stdout.on('data', (data) => {
+			console.log(`Using pynsist path detected on file system: ${data}`);
 			return resolve(data);
 		});
 
-		cp.on("error", (errorMessage) => {
+		cp.on('error', (errorMessage) => {
 			console.error({ errorMessage: errorMessage });
 		});
 
-		cp.on("close", (code) => {
+		cp.on('close', (code) => {
 			if (code !== 0) {
 				return reject(code);
 			}
@@ -84,32 +78,28 @@ export async function getPath(): Promise<string | number> {
 
 export function pathWarning(): void {
 	window
-		.showWarningMessage(
-			"pynsist is not installed or missing in your PATH environment variable",
-			"Download",
-			"Help",
-		)
+		.showWarningMessage('pynsist is not installed or missing in your PATH environment variable', 'Download', 'Help')
 		.then((choice) => {
 			switch (choice) {
-				case "Download":
-					open("https://pypi.python.org/pypi/pynsist");
+				case 'Download':
+					open('https://pypi.python.org/pypi/pynsist');
 					break;
 
-				case "Help":
-					open("http://superuser.com/a/284351/195953");
+				case 'Help':
+					open('http://superuser.com/a/284351/195953');
 					break;
 			}
 		});
 }
 
 export async function runInstaller(outFile: string): Promise<void> {
-	const { useWineToRun } = getConfig("pynsist");
+	const { useWineToRun } = getConfig('pynsist');
 
-	if (platform() === "win32") {
+	if (platform() === 'win32') {
 		// Setting shell to true seems to prevent spawn UNKNOWN errors
 		spawn(outFile, [], { shell: true });
 	} else if (useWineToRun === true) {
-		spawn("wine", [outFile]);
+		spawn('wine', [outFile]);
 	}
 }
 
