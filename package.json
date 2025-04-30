@@ -2,7 +2,7 @@
 	"name": "pynsist",
 	"displayName": "pynsist",
 	"description": "Language support, snippets and build-system for pynsist, a tool to build Windows installers for your Python applications",
-	"version": "0.14.0",
+	"version": "0.14.1",
 	"publisher": "idleberg",
 	"license": "MIT",
 	"author": {
