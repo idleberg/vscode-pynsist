@@ -1,3 +1,8 @@
+# v0.14.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.14.0)
+
+- change license to MIT-only
+- update tooling
+
 # v0.13.3 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.13.3)
 
 - do not focus output channel
