@@ -1,3 +1,7 @@
+# v0.14.1 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.14.1)
+
+- remove stray files from dist
+
 # v0.14.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.14.0)
 
 - change license to MIT-only
