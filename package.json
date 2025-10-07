@@ -17,8 +17,8 @@
 		"build:code": "tsup",
 		"build:image": "sharp resize 1024 1024 --input src/logo.svg --output resources/logo.png",
 		"dev": "npm run start",
-		"fix": "eslint --fix ./src",
-		"lint": "biome check --config-path=biome.jsonc --no-errors-on-unmatched --vcs-enabled=true --vcs-use-ignore-file=true",
+		"lint": "biome check",
+		"prepare": "lefthook install",
 		"publish:ovsx": "ovsx publish --no-dependencies",
 		"publish:vsce": "vsce publish --githubBranch main --no-dependencies",
 		"start": "npm run build:code -- --watch",
@@ -39,28 +39,22 @@
 		"url": "https://github.com/idleberg/vscode-pynsist/issues"
 	},
 	"dependencies": {
-		"nano-staged": "^0.8.0",
 		"open": "^10.1.1",
 		"vscode-get-config": "^0.4.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.9.4",
 		"@commitlint/cli": "^19.8.0",
 		"@commitlint/config-conventional": "^19.8.0",
-		"@eslint/js": "^9.25.1",
+		"@idleberg/configs": "^0.3.1",
 		"@total-typescript/tsconfig": "^1.0.4",
 		"@types/node": "^20.14.2",
 		"@types/vscode": "1.85.0",
 		"concurrently": "^9.1.2",
 		"cross-env": "^7.0.3",
-		"eslint": "^9.25.1",
-		"husky": "^9.1.7",
 		"lefthook": "^1.11.12",
-		"prettier": "^3.5.3",
 		"sharp-cli": "^5.1.0",
 		"tsup": "^8.4.0",
-		"typescript": "^5.8.3",
-		"typescript-eslint": "^8.31.1"
+		"typescript": "^5.8.3"
 	},
 	"activationEvents": [
 		"onStartupFinished"
@@ -193,12 +187,5 @@
 	},
 	"extensionDependencies": [
 		"idleberg.nsis"
-	],
-	"nano-staged": {
-		"*.(ts|json|yml)": [
-			"eslint --cache --fix",
-			"prettier --write"
-		],
-		"*.md": "prettier --write"
-	}
+	]
 }
