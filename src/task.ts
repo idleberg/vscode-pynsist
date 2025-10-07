@@ -23,6 +23,7 @@ export async function createTask(): Promise<void> {
 						label: 'pynsist: Compile Installer',
 						type: 'shell',
 						command: `${pathToPynsist}`,
+						// biome-ignore lint/suspicious/noTemplateCurlyInString: false positive
 						args: ['${file}'],
 						group: 'build',
 					},
@@ -30,6 +31,7 @@ export async function createTask(): Promise<void> {
 						label: 'pynsist: Generate Script',
 						type: 'shell',
 						command: `${pathToPynsist}`,
+						// biome-ignore lint/suspicious/noTemplateCurlyInString: false positive
 						args: ['--no-makensis', '${file}'],
 						group: 'build',
 					},

@@ -1,4 +1,4 @@
-import { type ExtensionContext, commands } from 'vscode';
+import { commands, type ExtensionContext } from 'vscode';
 import { generate } from './pynsist';
 import { createTask } from './task';
 
