@@ -1,3 +1,10 @@
+# v0.15.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.15.0)
+
+- use native icons
+- modernize code-base
+- update dependencies
+- use tsdown as bundler
+
 # v0.14.1 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.14.1)
 
 - remove stray files from dist
