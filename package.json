@@ -135,43 +135,34 @@
 			{
 				"command": "extension.pynsist.generate",
 				"title": "pynsist: Generate Script",
-				"icon": {
-					"dark": "./resources/dark/script.svg",
-					"light": "./resources/light/script.svg"
-				}
+				"icon": "$(run)"
 			},
 			{
 				"command": "extension.pynsist.compile",
 				"title": "pynsist: Compile Installer",
-				"icon": {
-					"dark": "./resources/dark/installer.svg",
-					"light": "./resources/light/installer.svg"
-				}
+				"icon": "$(run-all)"
 			},
 			{
-				"command": "extension.pynsist.create-build-task",
+				"command": "extension.pynsist.createBuildTask",
 				"title": "pynsist: Create Build Task",
-				"icon": {
-					"dark": "./resources/dark/task.svg",
-					"light": "./resources/light/task.svg"
-				}
+				"icon": "$(checklist)"
 			}
 		],
 		"menus": {
 			"editor/title": [
 				{
 					"when": "resourceLangId == pynsist",
-					"command": "extension.pynsist.compile",
+					"command": "extension.pynsist.generate",
 					"group": "navigation@1"
 				},
 				{
 					"when": "resourceLangId == pynsist",
-					"command": "extension.pynsist.generate",
+					"command": "extension.pynsist.compile",
 					"group": "navigation@2"
 				},
 				{
 					"when": "resourceLangId == pynsist",
-					"command": "extension.pynsist.create-build-task",
+					"command": "extension.pynsist.createBuildTask",
 					"group": "navigation@3"
 				}
 			]
