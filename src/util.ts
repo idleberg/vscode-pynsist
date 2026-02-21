@@ -81,7 +81,11 @@ export async function getPath(): Promise<string | number> {
 }
 
 export async function pathWarning(): Promise<void> {
-	const choice = await window.showWarningMessage('pynsist is not installed or missing in your PATH environment variable', 'Download', 'Help');
+	const choice = await window.showWarningMessage(
+		'pynsist is not installed or missing in your PATH environment variable',
+		'Download',
+		'Help',
+	);
 
 	switch (choice) {
 		case 'Download':

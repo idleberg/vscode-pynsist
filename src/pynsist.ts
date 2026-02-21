@@ -86,7 +86,11 @@ export async function generate(runMakensis: boolean): Promise<void> {
 		if (code === 0) {
 			if (showNotifications) {
 				if (runMakensis === true) {
-					const choice = await window.showInformationMessage('Successfully compiled installer', 'Run Installer', 'Open Script');
+					const choice = await window.showInformationMessage(
+						'Successfully compiled installer',
+						'Run Installer',
+						'Open Script',
+					);
 
 					if (choice === 'Run Installer') {
 						await runInstaller(outFile);
