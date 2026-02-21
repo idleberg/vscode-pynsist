@@ -6,6 +6,11 @@ import open from 'open';
 import { type OutputChannel, window } from 'vscode';
 import { getConfig } from 'vscode-get-config';
 
+interface DetectOutputOptions {
+	string: string;
+	regex: RegExp;
+}
+
 export async function clearOutput(channel: OutputChannel): Promise<void> {
 	const { alwaysShowOutput } = await getConfig('pynsist');
 

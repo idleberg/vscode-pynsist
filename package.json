@@ -10,7 +10,6 @@
 		"url": "http://github.com/idleberg"
 	},
 	"main": "./lib/index.cjs",
-	"typings": "./types",
 	"scripts": {
 		"compile": "npm run build",
 		"build": "concurrently --prefix-colors 'blue,green' 'npm:build:*'",
