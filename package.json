@@ -172,7 +172,7 @@
 				},
 				{
 					"when": "resourceLangId == pynsist",
-					"command": "extension.pynsist.open-settings",
+					"command": "extension.pynsist.openSettings",
 					"group": "navigation@4"
 				}
 			]

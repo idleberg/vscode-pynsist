@@ -15,7 +15,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
 			createTask();
 		}),
 
-		commands.registerCommand('extension.pynsist.open-settings', async () => {
+		commands.registerCommand('extension.pynsist.openSettings', async () => {
 			commands.executeCommand('workbench.action.openSettings', '@ext:idleberg.pynsist');
 		}),
 	);
