@@ -1,3 +1,7 @@
+# v0.15.1 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.15.1)
+
+- fix type in command name
+
 # v0.15.0 [#](https://github.com/idleberg/vscode-pynsist/releases/tag/v0.15.0)
 
 - use native icons
