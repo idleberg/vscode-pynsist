@@ -7,7 +7,7 @@ export default defineConfig({
 	format: 'cjs',
 	inlineOnly: false,
 	minify: true,
-	noExternal: ['open', 'vscode-get-config', 'which'],
+	noExternal: ['open', 'vscode-get-config'],
 	outDir: 'lib',
 	platform: 'node',
 	target: 'es2020',
