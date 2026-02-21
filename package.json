@@ -145,6 +145,12 @@
 				"command": "extension.pynsist.createBuildTask",
 				"title": "pynsist: Create Build Task",
 				"icon": "$(checklist)"
+			},
+
+			{
+				"command": "extension.pynsist.open-settings",
+				"title": "pynsist: Open Settings",
+				"icon": "$(settings)"
 			}
 		],
 		"menus": {
@@ -163,6 +169,11 @@
 					"when": "resourceLangId == pynsist",
 					"command": "extension.pynsist.createBuildTask",
 					"group": "navigation@3"
+				},
+				{
+					"when": "resourceLangId == pynsist",
+					"command": "extension.pynsist.open-settings",
+					"group": "navigation@4"
 				}
 			]
 		},

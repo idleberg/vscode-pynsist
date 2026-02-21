@@ -7,15 +7,16 @@ export async function activate(context: ExtensionContext): Promise<void> {
 		commands.registerTextEditorCommand('extension.pynsist.generate', () => {
 			generate(false);
 		}),
-	);
-	context.subscriptions.push(
+
 		commands.registerTextEditorCommand('extension.pynsist.compile', () => {
 			generate(true);
 		}),
-	);
-	context.subscriptions.push(
 		commands.registerTextEditorCommand('extension.pynsist.createBuildTask', () => {
 			createTask();
+		}),
+
+		commands.registerCommand('extension.pynsist.open-settings', async () => {
+			commands.executeCommand('workbench.action.openSettings', '@ext:idleberg.pynsist');
 		}),
 	);
 }
