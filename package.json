@@ -148,7 +148,7 @@
 			},
 
 			{
-				"command": "extension.pynsist.open-settings",
+				"command": "extension.pynsist.openSettings",
 				"title": "pynsist: Open Settings",
 				"icon": "$(settings)"
 			}
