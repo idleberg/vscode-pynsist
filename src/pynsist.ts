@@ -19,13 +19,11 @@ export async function generate(runMakensis: boolean): Promise<void> {
 	const doc = window?.activeTextEditor?.document;
 
 	if (!doc) {
-		console.error('[idleberg.applescript] Document not found');
+		console.error('[idleberg.pynsist] Document not found');
 		return;
 	}
 
-	const scope = doc.languageId;
-
-	if (scope !== 'properties' && doc.fileName === 'installer.cfg') {
+	if (doc.languageId !== 'pynsist') {
 		channel.appendLine('This command is only available for Pynsist Configuration files');
 		return;
 	}

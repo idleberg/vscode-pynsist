@@ -4,7 +4,6 @@ import { platform } from 'node:os';
 import { join } from 'node:path';
 import open from 'open';
 import { type OutputChannel, window } from 'vscode';
-// @ts-expect-error TODO Fix package
 import { getConfig } from 'vscode-get-config';
 
 export async function clearOutput(channel: OutputChannel): Promise<void> {
@@ -49,7 +48,7 @@ export function getPrefix(): string {
 }
 
 export async function getPath(): Promise<string | number> {
-	const pathToPynsist = (await getConfig('pynsist.pathToPynsist')) || 'pynsist';
+	const pathToPynsist = await getConfig('pynsist.pathToPynsist');
 
 	return new Promise((resolve, reject) => {
 		if (pathToPynsist) {
@@ -93,7 +92,7 @@ export function pathWarning(): void {
 }
 
 export async function runInstaller(outFile: string): Promise<void> {
-	const { useWineToRun } = getConfig('pynsist');
+	const { useWineToRun } = await getConfig('pynsist');
 
 	if (platform() === 'win32') {
 		// Setting shell to true seems to prevent spawn UNKNOWN errors
