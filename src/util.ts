@@ -80,20 +80,18 @@ export async function getPath(): Promise<string | number> {
 	});
 }
 
-export function pathWarning(): void {
-	window
-		.showWarningMessage('pynsist is not installed or missing in your PATH environment variable', 'Download', 'Help')
-		.then((choice) => {
-			switch (choice) {
-				case 'Download':
-					open('https://pypi.python.org/pypi/pynsist');
-					break;
+export async function pathWarning(): Promise<void> {
+	const choice = await window.showWarningMessage('pynsist is not installed or missing in your PATH environment variable', 'Download', 'Help');
 
-				case 'Help':
-					open('http://superuser.com/a/284351/195953');
-					break;
-			}
-		});
+	switch (choice) {
+		case 'Download':
+			open('https://pypi.python.org/pypi/pynsist');
+			break;
+
+		case 'Help':
+			open('http://superuser.com/a/284351/195953');
+			break;
+	}
 }
 
 export async function runInstaller(outFile: string): Promise<void> {

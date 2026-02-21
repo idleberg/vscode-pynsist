@@ -1,7 +1,6 @@
 import { spawn } from 'node:child_process';
 import { dirname } from 'node:path';
 import { window, workspace } from 'vscode';
-// @ts-expect-error TODO Fix package
 import { getConfig } from 'vscode-get-config';
 
 import { clearOutput, detectOutput, getPath, pathWarning, runInstaller, sanitize } from './util';
@@ -30,81 +29,83 @@ export async function generate(runMakensis: boolean): Promise<void> {
 
 	const { showNotifications } = await getConfig('pynsist');
 
-	doc.save().then(async () => {
-		await getPath()
-			.then((path) => sanitize(path.toString()))
-			.then((pathToPynsist: string) => {
-				if (typeof pathToPynsist === 'undefined' || pathToPynsist === null) {
-					return window.showErrorMessage('No valid `pynsist` was specified in your config');
+	await doc.save();
+
+	let pathToPynsist: string;
+
+	try {
+		const path = await getPath();
+		pathToPynsist = sanitize(path.toString());
+	} catch {
+		pathWarning();
+		return;
+	}
+
+	if (typeof pathToPynsist === 'undefined' || pathToPynsist === null) {
+		window.showErrorMessage('No valid `pynsist` was specified in your config');
+		return;
+	}
+
+	const defaultArguments: Array<string> = [doc.fileName];
+
+	if (runMakensis === false) {
+		defaultArguments.push('--no-makensis');
+	}
+
+	// Let's build
+	const pynsist = spawn(pathToPynsist, defaultArguments);
+
+	const scriptPath: string = dirname(doc.fileName);
+	let outScript = '';
+	let outFile = '';
+
+	pynsist.stdout.on('data', (line: string) => {
+		channel.appendLine(line.toString().trim());
+	});
+
+	// pynsist currently outputs to stderr only (v1.12)
+	pynsist.stderr.on('data', async (line: string) => {
+		channel.appendLine(line.toString().trim());
+
+		if (outScript === '') {
+			outScript = await detectOutput(scriptPath, line, {
+				string: 'Writing NSI file to ',
+				regex: /Writing NSI file to (.*)\r?\n/g,
+			});
+		}
+
+		if (outFile === '' && runMakensis === true) {
+			outFile = await detectOutput(scriptPath, line, {
+				string: 'Installer written to ',
+				regex: /Installer written to (.*)\r?\n/g,
+			});
+		}
+	});
+
+	pynsist.on('close', async (code) => {
+		if (code === 0) {
+			if (showNotifications) {
+				if (runMakensis === true) {
+					const choice = await window.showInformationMessage('Successfully compiled installer', 'Run Installer', 'Open Script');
+
+					if (choice === 'Run Installer') {
+						await runInstaller(outFile);
+					} else if (choice === 'Open Script') {
+						const scriptDoc = await workspace.openTextDocument(outScript);
+						await window.showTextDocument(scriptDoc);
+					}
+				} else {
+					const choice = await window.showInformationMessage('Successfully generated script', 'Open Script');
+
+					if (choice === 'Open Script') {
+						const scriptDoc = await workspace.openTextDocument(outScript);
+						await window.showTextDocument(scriptDoc);
+					}
 				}
-
-				const defaultArguments: Array<string> = [doc.fileName];
-
-				if (runMakensis === false) {
-					defaultArguments.push('--no-makensis');
-				}
-
-				// Let's build
-				const pynsist = spawn(pathToPynsist, defaultArguments);
-
-				const scriptPath: string = dirname(doc.fileName);
-				let outScript = '';
-				let outFile = '';
-
-				pynsist.stdout.on('data', (line: string) => {
-					channel.appendLine(line.toString().trim());
-				});
-
-				// pynsist currently outputs to stderr only (v1.12)
-				pynsist.stderr.on('data', async (line: string) => {
-					channel.appendLine(line.toString().trim());
-
-					if (outScript === '') {
-						outScript = await detectOutput(scriptPath, line, {
-							string: 'Writing NSI file to ',
-							regex: /Writing NSI file to (.*)\r?\n/g,
-						});
-					}
-
-					if (outFile === '' && runMakensis === true) {
-						outFile = await detectOutput(scriptPath, line, {
-							string: 'Installer written to ',
-							regex: /Installer written to (.*)\r?\n/g,
-						});
-					}
-				});
-
-				pynsist.on('close', async (code) => {
-					if (code === 0) {
-						if (showNotifications) {
-							if (runMakensis === true) {
-								window
-									.showInformationMessage('Successfully compiled installer', 'Run Installer', 'Open Script')
-									.then(async (choice) => {
-										if (choice === 'Run Installer') {
-											await runInstaller(outFile);
-										} else if (choice === 'Open Script') {
-											workspace.openTextDocument(outScript).then((doc) => {
-												window.showTextDocument(doc);
-											});
-										}
-									});
-							} else {
-								window.showInformationMessage('Successfully generated script', 'Open Script').then((choice) => {
-									if (choice === 'Open Script') {
-										workspace.openTextDocument(outScript).then((doc) => {
-											window.showTextDocument(doc);
-										});
-									}
-								});
-							}
-						}
-					} else {
-						channel.show();
-						if (showNotifications) window.showErrorMessage('Something went wrong. See the output for details.');
-					}
-				});
-			})
-			.catch(pathWarning);
+			}
+		} else {
+			channel.show();
+			if (showNotifications) window.showErrorMessage('Something went wrong. See the output for details.');
+		}
 	});
 }
