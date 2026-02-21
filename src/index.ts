@@ -14,7 +14,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
 		}),
 	);
 	context.subscriptions.push(
-		commands.registerTextEditorCommand('extension.pynsist.create-build-task', () => {
+		commands.registerTextEditorCommand('extension.pynsist.createBuildTask', () => {
 			createTask();
 		}),
 	);

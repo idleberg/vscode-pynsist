@@ -32,7 +32,7 @@ export async function detectOutput(relativePath: string, line: string, needle: D
 	return '';
 }
 
-async function fileExists(filePath: string): Promise<boolean> {
+export async function fileExists(filePath: string): Promise<boolean> {
 	try {
 		await fs.access(filePath, constants.F_OK);
 	} catch (error) {
@@ -48,7 +48,7 @@ export function getPrefix(): string {
 }
 
 export async function getPath(): Promise<string | number> {
-	const pathToPynsist = await getConfig('pynsist.pathToPynsist');
+	const pathToPynsist = (await getConfig<string>('pynsist.pathToPynsist'))?.toString().trim();
 
 	return new Promise((resolve, reject) => {
 		if (pathToPynsist) {
