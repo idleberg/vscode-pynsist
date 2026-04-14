@@ -1,8 +1,7 @@
 # vscode-pynsist
 
+[![License](https://img.shields.io/github/license/idleberg/vscode-applescript?color=blue&style=for-the-badge)](LICENSE)
 [![Version](https://img.shields.io/github/v/release/idleberg/vscode-pynsist?style=for-the-badge)](https://github.com/idleberg/vscode-pynsist/releases)
-[![Visual Studio Marketplace Installs](https://img.shields.io/visual-studio-marketplace/i/idleberg.pynsist?style=for-the-badge&label=Marketplace)](https://marketplace.visualstudio.com/items?itemName=idleberg.pynsist)
-[![Open VSX Downloads](https://img.shields.io/open-vsx/dt/idleberg/pynsist?style=for-the-badge&label=Open%20VSX)](https://open-vsx.org/extension/idleberg/pynsist)
 [![Build](https://img.shields.io/github/actions/workflow/status/idleberg/vscode-pynsist/default.yml?style=for-the-badge)](https://github.com/idleberg/vscode-pynsist/actions)
 
 Language support, snippets and build-system for [pynsist](https://pypi.python.org/pypi/pynsist), a tool to build Windows installers for your Python applications
@@ -86,4 +85,4 @@ Once set up, you can make use of the commands provided by this package:
 
 ## License
 
-This work is licensed under [The MIT License](https://opensource.org/licenses/MIT)
+This work is licensed under [The MIT License](LICENSE)
